@@ -25,5 +25,11 @@ export default createGlobalStyle`
     
     button {
       cursor: pointer;
-    }    
+    }
+
+    @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+      #root {
+        font-size: 62.5%;
+      } 
+    }
 `;

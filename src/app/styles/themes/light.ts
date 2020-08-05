@@ -31,9 +31,6 @@ export default {
   },
 
   breakpoints: {
-    small: 640,
-    medium: 768,
-    large: 1024,
-    xlarge: 1280,
+    small: 700,
   },
 };

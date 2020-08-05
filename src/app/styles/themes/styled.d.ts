@@ -25,9 +25,6 @@ interface Shapes {
 
 interface Breakpoints {
   small: number,
-  medium: number,
-  large: number,
-  xlarge: number,
 }
 
 declare module 'styled-components' {
