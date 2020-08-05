@@ -12,7 +12,7 @@ const Navigation: React.FC<Props> = (props) => {
     <Container>
       {children}
     </Container>
-  )
-}
+  );
+};
 
 export default Navigation;

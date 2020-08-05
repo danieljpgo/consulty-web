@@ -22,8 +22,8 @@ export default {
     background: colors.gray['300'],
     surface: {
       base: colors.white,
-      constrast: colors.gray['100']
-    }
+      constrast: colors.gray['100'],
+    },
   },
 
   shapes: {
