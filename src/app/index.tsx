@@ -1,9 +1,13 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './styles/global';
+import Light from './styles/themes/light';
 
-function App() {
-  return (
-    <div className="App">Hello World</div>
-  );
-}
+const App: React.FC = () => (
+  <ThemeProvider theme={Light}>
+    <GlobalStyle />
+    <h1>Hello World</h1>
+  </ThemeProvider>
+);
 
 export default App;
