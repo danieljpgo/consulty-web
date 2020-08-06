@@ -19,6 +19,10 @@ export default {
       main: colors.green['500'],
       dark: colors.green['700'],
     },
+    text: {
+      base: '',
+      constrast: colors.white,
+    },
     background: colors.gray['300'],
     surface: {
       base: colors.white,
