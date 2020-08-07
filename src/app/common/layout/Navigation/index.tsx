@@ -1,5 +1,6 @@
-import React from 'react';
-import { Container } from './styles';
+import React, { Fragment } from 'react';
+import { Content } from './styles';
+import Header from './Header';
 
 interface Props {
   children: React.ReactNode
@@ -9,9 +10,12 @@ const Navigation: React.FC<Props> = (props) => {
   const { children } = props;
 
   return (
-    <Container>
-      {children}
-    </Container>
+    <Fragment>
+      <Header />
+      <Content>
+        {children}
+      </Content>
+    </Fragment>
   );
 };
 
