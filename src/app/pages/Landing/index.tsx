@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Container,
-  Content,
   Brand,
   Hero,
   ButtonContainer,
@@ -16,51 +15,51 @@ import purpleHeart from '../../common/assets/icons/purple-heart.svg';
 
 const Home: React.FC = () => (
   <Container>
-    <Content>
-      <Brand>
-        {/* <img
-          src={logo}
-          alt="Plataforma de estudos"
-        /> */}
-        <h2>Sua plataforma de estudos online.</h2>
-      </Brand>
-
-      {/* <Hero
-        src={landing}
+    <Brand>
+      <img
+        src={logo}
         alt="Plataforma de estudos"
-      /> */}
+      />
+      <h2>Sua plataforma de estudos online.</h2>
+    </Brand>
 
-      <ButtonContainer>
-        <Button
-          href=""
-          styleVariants="primary"
-        >
-          <img
-            src={studyIcon}
-            alt="Estudar"
-          />
-          <span>Estudar</span>
-        </Button>
-        <Button
-          href=""
-          styleVariants="secundary"
-        >
-          <img
-            src={classIcon}
-            alt="Estudar"
-          />
-          <span>Dar aula</span>
-        </Button>
-      </ButtonContainer>
+    <Hero
+      src={landing}
+      alt="Plataforma de estudos"
+    />
+
+    <ButtonContainer>
+      <Button
+        href=""
+        styleVariants="primary"
+      >
+        <img
+          src={studyIcon}
+          alt="Estudar"
+        />
+        <span>Estudar</span>
+      </Button>
+      <Button
+        href=""
+        styleVariants="secundary"
+      >
+        <img
+          src={classIcon}
+          alt="Estudar"
+        />
+        <span>Dar aula</span>
+      </Button>
 
       <Counter>
-        <span>Total de 200 conexões já realizadas</span>
-        <img
-          src={purpleHeart}
-          alt="Coração roxo"
-        />
+        <span>
+          Total de 200 conexões já realizadas
+          <img
+            src={purpleHeart}
+            alt="Coração roxo"
+          />
+        </span>
       </Counter>
-    </Content>
+    </ButtonContainer>
   </Container>
 );
 

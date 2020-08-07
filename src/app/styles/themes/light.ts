@@ -20,7 +20,7 @@ export default {
       dark: colors.green['700'],
     },
     text: {
-      base: '',
+      base: colors.purple['100'],
       constrast: colors.white,
     },
     background: colors.gray['300'],
