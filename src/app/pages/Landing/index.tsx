@@ -13,7 +13,7 @@ import studyIcon from '../../common/assets/icons/study.svg';
 import classIcon from '../../common/assets/icons/give-classes.svg';
 import purpleHeart from '../../common/assets/icons/purple-heart.svg';
 
-const Home: React.FC = () => (
+const Landing: React.FC = () => (
   <Container>
     <Brand>
       <img
@@ -63,4 +63,4 @@ const Home: React.FC = () => (
   </Container>
 );
 
-export default Home;
+export default Landing;

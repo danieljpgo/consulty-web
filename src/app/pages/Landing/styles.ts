@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
+export const Container = styled.div`
   display: grid;
   grid-gap: 3em;
   grid-template-columns: auto;
@@ -78,10 +78,16 @@ export const Counter = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  img{
-    margin-left: 0.25rem;
+  color: ${(props) => props.theme.colors.text.base};
+  span{
+    display: flex;
+    align-items: center;
+    img{
+      margin-left: 0.25rem;
+    }
   }
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    font-size: 0.8rem;
     justify-content: flex-end;
   } 
 `;
