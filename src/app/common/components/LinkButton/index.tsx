@@ -1,18 +1,19 @@
 import React from 'react';
 import { Container } from './styles';
 
-interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface Props {
   children: React.ReactNode,
+  to: string;
   styleVariants: 'primary' | 'secundary'
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { children, styleVariants } = props;
+  const { children, styleVariants, to } = props;
 
   return (
     <Container
-      {...props}
-      styleVariants={styleVariants}
+      to={to}
+      $styleVariants={styleVariants}
     >
       {children}
     </Container>

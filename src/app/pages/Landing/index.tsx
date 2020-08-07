@@ -8,7 +8,7 @@ import {
 } from './styles';
 import landing from '../../common/assets/images/landing.svg';
 import logo from '../../common/assets/images/logo.svg';
-import Button from '../../common/components/Button';
+import LinkButton from '../../common/components/LinkButton';
 import studyIcon from '../../common/assets/icons/study.svg';
 import classIcon from '../../common/assets/icons/give-classes.svg';
 import purpleHeart from '../../common/assets/icons/purple-heart.svg';
@@ -29,8 +29,8 @@ const Landing: React.FC = () => (
     />
 
     <ButtonContainer>
-      <Button
-        href=""
+      <LinkButton
+        to="/teacher"
         styleVariants="primary"
       >
         <img
@@ -38,9 +38,9 @@ const Landing: React.FC = () => (
           alt="Estudar"
         />
         <span>Estudar</span>
-      </Button>
-      <Button
-        href=""
+      </LinkButton>
+      <LinkButton
+        to="/form"
         styleVariants="secundary"
       >
         <img
@@ -48,7 +48,7 @@ const Landing: React.FC = () => (
           alt="Estudar"
         />
         <span>Dar aula</span>
-      </Button>
+      </LinkButton>
 
       <Counter>
         <span>

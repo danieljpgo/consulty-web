@@ -10,8 +10,8 @@ const Routes: React.FC = () => (
   <BrowserRouter>
     <Switch>
       <Route
-        path="/"
         exact
+        path="/"
       >
         <Home>
           <Landing />
@@ -20,14 +20,14 @@ const Routes: React.FC = () => (
       <Route>
         <Navigation>
           <Route
-            path="/form"
             exact
+            path="/form"
           >
             <Teachers />
           </Route>
           <Route
-            path="/teachers"
             exact
+            path="/teachers"
           >
             <Form />
           </Route>
