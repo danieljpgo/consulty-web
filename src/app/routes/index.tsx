@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from '../pages/Landing/index';
 import Teachers from '../pages/Teachers';
-import Form from '../pages/Form';
+import Register from '../pages/Register';
 import Navigation from '../common/layout/Navigation';
 import Home from '../common/layout/Home';
 
@@ -21,15 +21,15 @@ const Routes: React.FC = () => (
         <Navigation>
           <Route
             exact
-            path="/form"
+            path="/teachers"
           >
             <Teachers />
           </Route>
           <Route
             exact
-            path="/teachers"
+            path="/register"
           >
-            <Form />
+            <Register />
           </Route>
         </Navigation>
       </Route>

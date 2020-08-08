@@ -30,7 +30,7 @@ const Landing: React.FC = () => (
 
     <ButtonContainer>
       <LinkButton
-        to="/teacher"
+        to="/teachers"
         styleVariants="primary"
       >
         <img
@@ -40,7 +40,7 @@ const Landing: React.FC = () => (
         <span>Estudar</span>
       </LinkButton>
       <LinkButton
-        to="/form"
+        to="/register"
         styleVariants="secundary"
       >
         <img
