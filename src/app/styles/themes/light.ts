@@ -1,6 +1,6 @@
 import colors from '../colors';
 
-export const unit = 16;
+export const unit = 1.4;
 
 export default {
   title: 'light',
@@ -23,6 +23,9 @@ export default {
       base: colors.purple['100'],
       constrast: colors.white,
     },
+    title: {
+      main: colors.purple['900'],
+    },
     background: colors.gray['300'],
     surface: {
       base: colors.white,
@@ -35,7 +38,7 @@ export default {
   },
 
   shapes: {
-    borderRadius: unit / 3,
+    borderRadius: 0.4,
   },
 
   breakpoints: {

@@ -22,7 +22,7 @@ const variants = {
 };
 
 export const Container = styled(Link) <Props>`
-  border-radius: ${(props) => props.theme.shapes.borderRadius}px;
+  border-radius: ${(props) => props.theme.shapes.borderRadius}rem;
   text-decoration: none;
   font: 700 1.0rem Archivo;
   color: ${(props) => props.theme.colors.text.constrast};

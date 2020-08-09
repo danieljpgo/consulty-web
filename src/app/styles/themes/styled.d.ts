@@ -24,6 +24,9 @@ interface Colors {
   text: {
     base: string,
     constrast: string,
+  },
+  title: {
+    main: string,
   }
 }
 

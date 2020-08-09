@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  height: 2.6rem;
+  height: 3rem;
   display: flex;
 `;
 
 export const Content = styled.div`
-  width: 90%;
+  width: calc(100vw - ${(props) => props.theme.unit * 2}rem);
   max-width: 960px;
   margin: 0 auto;
   display: grid;

@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const Brand = styled.div`
   text-align: center;
-  h1{
+  h2{
     font-weight: 500;
     font-size: 1.4rem;
     color: ${(props) => props.theme.colors.text.base};
@@ -32,7 +32,7 @@ export const Brand = styled.div`
   
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     text-align: start;
-    h1{
+    h2{
       font-size: 2rem;
     }
     img{
