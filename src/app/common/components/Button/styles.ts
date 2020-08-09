@@ -33,10 +33,15 @@ const size = {
     }
   `,
   large: css`
-    padding: ${(props) => props.theme.unit}rem;
-    font-size: 1.4rem;
+    padding: ${(props) => props.theme.unit / 2}rem;
+    font-size: 1rem;
     img {
       width: 2rem;
+    }
+
+    @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+      padding: ${(props) => props.theme.unit}rem;
+      font-size: 1.4rem;
     }
   `,
 };
