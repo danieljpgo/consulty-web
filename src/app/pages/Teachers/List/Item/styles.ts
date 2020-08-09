@@ -47,14 +47,27 @@ export const Container = styled.article`
     border-top: solid 1px ${(props) => props.theme.colors.lines.constrast};
     > div {
       display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: ${(props) => props.theme.unit / 2}rem;
+      grid-template-columns: auto;
+      grid-column-gap: ${(props) => props.theme.unit / 2}rem;
       align-items: center;
       span{
         color: ${(props) => props.theme.colors.subtext.base};
+        align-self: flex-end;
       }
       strong {
         color: ${(props) => props.theme.colors.primary.main};
+        align-self: flex-start;
+      }
+    }
+
+    @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+      > div {
+      grid-template-columns: auto auto;
+      span{
+        align-self: center;
+      }
+      strong {
+        align-self: center;
       }
     }
   }

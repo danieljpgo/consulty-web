@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-gap: 3em;
+  grid-gap: ${(props) => props.theme.unit * 2}rem;
   grid-template-columns: auto;
   grid-template-rows: min-content min-content min-content;
   align-items: center;
@@ -47,23 +47,8 @@ export const Hero = styled.img`
 
 export const ButtonContainer = styled.div`
   display: grid;
-  grid-gap: 1rem 1rem;
+  grid-gap: ${(props) => props.theme.unit / 2}rem ${(props) => props.theme.unit}rem;
   grid-template-columns: 1fr 1fr;
-
-  a {
-    display: grid;
-    grid-gap: 0.5rem;
-    grid-template-columns: min-content min-content;
-    grid-template-rows: min-content;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    padding: 1rem;
-    img {
-      width: 2rem;
-    }
-  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     grid-column: span 2;
@@ -80,8 +65,6 @@ export const Counter = styled.div`
   text-align: center;
   color: ${(props) => props.theme.colors.title.base};
   span{
-    display: flex;
-    align-items: center;
     img{
       margin-left: 0.25rem;
     }

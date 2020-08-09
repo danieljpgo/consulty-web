@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Container,
   Brand,
@@ -8,59 +9,67 @@ import {
 } from './styles';
 import landing from '../../common/assets/images/landing.svg';
 import logo from '../../common/assets/images/logo.svg';
-import LinkButton from '../../common/components/LinkButton';
+import Button from '../../common/components/Button';
 import studyIcon from '../../common/assets/icons/study.svg';
 import classIcon from '../../common/assets/icons/give-classes.svg';
 import purpleHeart from '../../common/assets/icons/purple-heart.svg';
 
-const Landing: React.FC = () => (
-  <Container>
-    <Brand>
-      <img
-        src={logo}
+const Landing: React.FC = () => {
+  const history = useHistory();
+
+  function handleClick(path: string) {
+    history.push(path);
+  }
+
+  return (
+    <Container>
+      <Brand>
+        <img
+          src={logo}
+          alt="Plataforma de estudos"
+        />
+        <h2>Sua plataforma de estudos online.</h2>
+      </Brand>
+
+      <Hero
+        src={landing}
         alt="Plataforma de estudos"
       />
-      <h2>Sua plataforma de estudos online.</h2>
-    </Brand>
 
-    <Hero
-      src={landing}
-      alt="Plataforma de estudos"
-    />
-
-    <ButtonContainer>
-      <LinkButton
-        to="/teachers"
-        styleVariants="primary"
-      >
-        <img
-          src={studyIcon}
+      <ButtonContainer>
+        <Button
+          type="button"
           alt="Estudar"
-        />
-        <span>Estudar</span>
-      </LinkButton>
-      <LinkButton
-        to="/register"
-        styleVariants="secundary"
-      >
-        <img
-          src={classIcon}
-          alt="Estudar"
-        />
-        <span>Dar aula</span>
-      </LinkButton>
+          icon={studyIcon}
+          size="large"
+          styleVariants="primary"
+          onClick={() => handleClick('/teachers')}
+        >
+          Estudar
+        </Button>
+        <Button
+          type="button"
+          alt="Dar aula"
+          icon={classIcon}
+          size="large"
+          styleVariants="secundary"
+          onClick={() => handleClick('/register')}
+        >
+          Dar aula
+        </Button>
 
-      <Counter>
-        <span>
-          Total de 200 conexões já realizadas
-          <img
-            src={purpleHeart}
-            alt="Coração roxo"
-          />
-        </span>
-      </Counter>
-    </ButtonContainer>
-  </Container>
-);
+        <Counter>
+          <span>
+            Total de 200 conexões já realizadas
+            <img
+              src={purpleHeart}
+              alt="Coração roxo"
+            />
+          </span>
+        </Counter>
+      </ButtonContainer>
+    </Container>
+  );
+};
 
 export default Landing;

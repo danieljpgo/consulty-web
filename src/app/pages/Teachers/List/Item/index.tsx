@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
-import Button from '../../../../common/components/LinkButton';
+import Button from '../../../../common/components/Button';
 import whatsappIcon from '../../../../common/assets/icons/whatsapp.svg';
 
 interface Props {
@@ -19,6 +19,10 @@ const Item: React.FC<Props> = (props) => {
     description,
     history,
   } = props;
+
+  function handleWhatsappClick() {
+    console.log('click');
+  }
 
   return (
     <Container>
@@ -40,14 +44,14 @@ const Item: React.FC<Props> = (props) => {
           <strong>R$ 20,00</strong>
         </div>
         <Button
-          to=""
+          type="button"
+          icon={whatsappIcon}
+          alt="Whatsapp"
+          size="small"
           styleVariants="secundary"
+          onClick={() => handleWhatsappClick()}
         >
-          <img
-            src={whatsappIcon}
-            alt="Whatsapp"
-          />
-          <span>Entrar em contato</span>
+          Entrar em contato
         </Button>
       </footer>
     </Container>
