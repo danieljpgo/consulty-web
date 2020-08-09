@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  padding: 0 1.5rem;
-  height: 3.4rem;
+  height: 2.6rem;
   display: flex;
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  width: 90%;
   max-width: 960px;
   margin: 0 auto;
   display: grid;

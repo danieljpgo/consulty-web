@@ -27,6 +27,10 @@ export default {
     surface: {
       base: colors.white,
       constrast: colors.gray['100'],
+      input: colors.gray['400'],
+    },
+    lines: {
+      constrast: colors.gray['200'],
     },
   },
 

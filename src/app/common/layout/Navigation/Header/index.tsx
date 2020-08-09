@@ -8,10 +8,16 @@ const Header: React.FC = () => (
   <Container>
     <Content>
       <Link to="/">
-        <img src={backImg} alt="Voltar para a home" />
+        <img
+          src={backImg}
+          alt="Voltar para a home"
+        />
       </Link>
       <Brand>
-        <img src={logo} alt="Logo" />
+        <img
+          src={logo}
+          alt="Logo"
+        />
       </Brand>
     </Content>
   </Container>

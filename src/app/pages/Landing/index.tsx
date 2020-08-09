@@ -20,7 +20,7 @@ const Landing: React.FC = () => (
         src={logo}
         alt="Plataforma de estudos"
       />
-      <h2>Sua plataforma de estudos online.</h2>
+      <h1>Sua plataforma de estudos online.</h1>
     </Brand>
 
     <Hero

@@ -16,6 +16,10 @@ interface Colors {
   surface: {
     base: string,
     constrast: string,
+    input: string,
+  },
+  lines: {
+    constrast: string,
   },
   text: {
     base: string,
