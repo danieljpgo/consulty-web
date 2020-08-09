@@ -44,13 +44,17 @@ export const Container = styled.article`
     grid-template-columns: max-content auto;
     grid-gap: ${(props) => props.theme.unit}rem;
     justify-content: space-between;
+    border-top: solid 1px ${(props) => props.theme.colors.lines.constrast};
     > div {
       display: grid;
       grid-template-columns: auto auto;
       grid-gap: ${(props) => props.theme.unit / 2}rem;
       align-items: center;
-      span:last-child{
-        
+      span{
+        color: ${(props) => props.theme.colors.subtext.base};
+      }
+      strong {
+        color: ${(props) => props.theme.colors.primary.main};
       }
     }
   }

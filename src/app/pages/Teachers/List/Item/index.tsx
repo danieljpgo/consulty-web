@@ -37,7 +37,7 @@ const Item: React.FC<Props> = (props) => {
       <footer>
         <div>
           <span>Preço/hora</span>
-          <span>R$ 20,00</span>
+          <strong>R$ 20,00</strong>
         </div>
         <Button
           to=""

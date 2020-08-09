@@ -21,6 +21,7 @@ export default createGlobalStyle`
 
     body, input, button, textarea {
       font: 500 1.6rem Poppins;
+      color: ${(props) => props.theme.colors.text.base};
     }
     
     button {

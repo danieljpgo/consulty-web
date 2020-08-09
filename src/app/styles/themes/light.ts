@@ -20,11 +20,15 @@ export default {
       dark: colors.green['700'],
     },
     text: {
-      base: colors.purple['100'],
+      base: colors.purple['200'],
       constrast: colors.white,
+    },
+    subtext: {
+      base: colors.gray['700'],
     },
     title: {
       main: colors.purple['900'],
+      base: colors.purple['100'],
     },
     background: colors.gray['300'],
     surface: {

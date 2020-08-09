@@ -25,8 +25,12 @@ interface Colors {
     base: string,
     constrast: string,
   },
+  subtext: {
+    base: string,
+  },
   title: {
     main: string,
+    base: string,
   }
 }
 

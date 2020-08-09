@@ -24,7 +24,7 @@ export const Brand = styled.div`
   h2{
     font-weight: 500;
     font-size: 1.4rem;
-    color: ${(props) => props.theme.colors.text.base};
+    color: ${(props) => props.theme.colors.title.base};
   }
   img{
     height: 3rem;
@@ -78,7 +78,7 @@ export const Counter = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: ${(props) => props.theme.colors.text.base};
+  color: ${(props) => props.theme.colors.title.base};
   span{
     display: flex;
     align-items: center;
