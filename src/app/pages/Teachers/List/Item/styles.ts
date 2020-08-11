@@ -2,23 +2,25 @@ import styled from 'styled-components';
 
 export const Container = styled.article`
   display: grid;
-  border-radius: 0.6rem;
+  border-radius: ${(props) => props.theme.shapes.borderRadius}rem;
   background-color: ${(props) => props.theme.colors.surface.base};
   border: solid 1px ${(props) => props.theme.colors.lines.constrast};
 
   > div{
     display: grid;
-    grid-gap: 0.8rem;
+    grid-gap: ${(props) => props.theme.unit / 2}rem;
     padding: ${(props) => props.theme.unit}rem;
     header{
       display: grid;
-      grid-column-gap: 0.8rem;
+      grid-column-gap: ${(props) => props.theme.unit / 2}rem;
       grid-template-columns: 4.5rem 1fr;
       img{
         grid-row: span 2;
         width: 100%;
         border-radius: 50%;
         object-fit: cover;
+        min-width: 71px;
+        min-height: 71px;
       }
       strong{
         align-self: flex-end;
@@ -63,11 +65,12 @@ export const Container = styled.article`
     @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
       > div {
       grid-template-columns: auto auto;
-      span{
-        align-self: center;
-      }
-      strong {
-        align-self: center;
+        span{
+          align-self: center;
+        }
+        strong {
+          align-self: center;
+        }
       }
     }
   }

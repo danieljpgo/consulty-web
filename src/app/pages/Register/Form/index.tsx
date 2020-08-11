@@ -1,9 +1,35 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, Content } from './styles';
+import Button from '../../../common/components/Button';
+import Fieldset from './Fieldset';
 
 const Form: React.FC = () => (
   <Container>
-    a
+    <Content>
+      <Fieldset title="teste">
+        a
+      </Fieldset>
+      <Fieldset title="teste">
+        a
+      </Fieldset>
+      <Fieldset title="teste">
+        a
+      </Fieldset>
+    </Content>
+    <footer>
+      <div>
+        <div>a</div>
+        <div>b</div>
+      </div>
+
+      <Button
+        type="button"
+        size="small"
+        styleVariants="secundary"
+      >
+        Salvar
+      </Button>
+    </footer>
   </Container>
 );
 

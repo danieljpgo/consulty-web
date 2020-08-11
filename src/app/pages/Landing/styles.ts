@@ -33,7 +33,8 @@ export const Brand = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     text-align: start;
     h2{
-      font-size: 2rem;
+      font-size: 2.1rem;
+      max-width: 500px;
     }
     img{
       height: 8rem;

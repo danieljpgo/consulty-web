@@ -22,8 +22,9 @@ const variants = {
 
 const size = {
   small: css`
-    padding: ${(props) => props.theme.unit / 2}rem;
     font-size: 1rem;
+    padding: ${(props) => props.theme.unit / 2}rem;
+    grid-gap: ${(props) => props.theme.unit / 4}rem;
     img {
       width: 1.4rem;
     }
@@ -33,22 +34,22 @@ const size = {
     }
   `,
   large: css`
-    padding: ${(props) => props.theme.unit / 2}rem;
     font-size: 1rem;
+    padding: ${(props) => props.theme.unit / 2}rem;
+    grid-gap: ${(props) => props.theme.unit / 2}rem;
     img {
       width: 2rem;
     }
 
     @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
       padding: ${(props) => props.theme.unit}rem;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   `,
 };
 
 export const Container = styled.button<Props>`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit / 4}rem;
   grid-template-columns: min-content min-content;
   align-items: center;
   justify-content: center;

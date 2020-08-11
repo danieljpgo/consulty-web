@@ -29,6 +29,19 @@ export default createGlobalStyle`
       cursor: pointer;
     }
 
+    fieldset{
+      border-width: 0px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-block-end: 0px;
+      padding-block-start: 0px;
+      padding-inline-end: 0px;
+      padding-inline-start: 0px;
+      border-style: none;
+      border-color: unset;
+      border-image: none;
+    }
+
     @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
       #root {
         font-size: 62.5%;

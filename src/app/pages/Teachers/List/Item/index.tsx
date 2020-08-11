@@ -13,7 +13,6 @@ interface Props {
 
 const Item: React.FC<Props> = (props) => {
   const {
-    id,
     name,
     type,
     description,
