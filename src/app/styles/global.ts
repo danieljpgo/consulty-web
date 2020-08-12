@@ -20,7 +20,7 @@ export default createGlobalStyle`
       background-color: ${(props) => props.theme.colors.background};   
     }
 
-    body, input, button, textarea {
+    body, input, button, textarea, select {
       font: 500 1.6rem Poppins;
       color: ${(props) => props.theme.colors.text.base};
     }

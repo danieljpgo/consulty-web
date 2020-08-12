@@ -4,6 +4,7 @@ import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
 import TextAreaField from '../../../common/components/TextAreaField';
+import SelectField from '../../../common/components/SelectField';
 
 const Form: React.FC = () => (
   <Container>
@@ -33,10 +34,10 @@ const Form: React.FC = () => (
       </Fieldset>
 
       <Fieldset title="Sobre a aula">
-        <TextField
+        <SelectField
           id="subject"
-          type="text"
           label="Matéria"
+          options={[{ label: 'Selecione qual você quer ensinar', value: 'undefined' }]}
         />
         <TextField
           id="price"
