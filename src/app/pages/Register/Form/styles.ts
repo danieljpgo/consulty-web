@@ -15,16 +15,25 @@ export const Container = styled.div`
     border-top: solid 1px ${(props) => props.theme.colors.lines.constrast};
     padding: ${(props) => props.theme.unit}rem;
     background-color: ${(props) => props.theme.colors.surface.constrast};
-
+    
     display: grid;
-    grid-template-columns: max-content auto;
-    grid-gap: ${(props) => props.theme.unit}rem;
-    justify-content: space-between;
-    > div {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-column-gap: ${(props) => props.theme.unit / 2}rem;
-      align-items: center;
+    grid-template-columns: min-content;
+    justify-content: flex-end;
+
+    > div{
+      display: none
+    }
+    
+    @media(min-width: ${(props) => props.theme.breakpoints.small}px) {
+      grid-template-columns: max-content auto;
+      grid-gap: ${(props) => props.theme.unit}rem;
+      justify-content: space-between;
+      > div {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: ${(props) => props.theme.unit / 2}rem;
+        align-items: center;
+      }
     }
   }
 `;

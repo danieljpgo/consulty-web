@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
+import TextField from '../../../common/components/TextField';
 
 interface Props {
   onSubmit: (e: any) => void;
@@ -13,22 +14,22 @@ const Filter: React.FC<Props> = (props) => {
       onSubmit={onSubmit}
     >
       <div>
-        <label htmlFor="subject">Matérias</label>
-        <input
+        <TextField
+          label="Matérias"
           type="text"
           id="subject"
         />
       </div>
       <div>
-        <label htmlFor="week_day">Dia da Semana</label>
-        <input
+        <TextField
+          label="Dia da Semana"
           type="text"
           id="week_day"
         />
       </div>
       <div>
-        <label htmlFor="time">Tempo</label>
-        <input
+        <TextField
+          label="Tempo"
           type="text"
           id="time"
         />
