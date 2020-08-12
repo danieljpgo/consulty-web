@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.fieldset`
+export const Content = styled.div`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit}rem;
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
 `;

@@ -8,9 +8,8 @@ const Register: React.FC = () => (
       <h1>
         Que incrível que você quer dar aulas.
       </h1>
-
       <span>
-        Lorem Ipsum
+        O primeiro passo, é preencher esse formulário de inscrição.
       </span>
     </Content>
     <Form />

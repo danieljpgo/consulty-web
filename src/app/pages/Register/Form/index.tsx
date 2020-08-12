@@ -6,20 +6,21 @@ import Fieldset from './Fieldset';
 const Form: React.FC = () => (
   <Container>
     <Content>
-      <Fieldset title="teste">
+      <Fieldset title="Seus dados">
         a
       </Fieldset>
-      <Fieldset title="teste">
+      <Fieldset title="Sobre a aula">
         a
       </Fieldset>
-      <Fieldset title="teste">
+      <Fieldset title="Horários disponíveis">
         a
       </Fieldset>
     </Content>
     <footer>
       <div>
         <div>a</div>
-        <div>b</div>
+        <div>Importante !</div>
+        <div>Preencha todos os dados</div>
       </div>
 
       <Button
@@ -27,7 +28,7 @@ const Form: React.FC = () => (
         size="small"
         styleVariants="secundary"
       >
-        Salvar
+        Salvar cadastro
       </Button>
     </footer>
   </Container>
