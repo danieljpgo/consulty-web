@@ -1,21 +1,43 @@
-import React, { InputHTMLAttributes, Fragment } from 'react';
-import { Input } from './styles';
+import React, { InputHTMLAttributes } from 'react';
+import { Container, Input, Label } from './styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string,
+  hint?: string,
+  constrast?: boolean,
 }
 
+const defaultProps = {
+  constrast: false,
+  hint: undefined,
+};
+
 const TextField: React.FC<Props> = (props) => {
-  const { label, ...inputProps } = props;
+  const {
+    label,
+    hint,
+    constrast,
+    ...inputProps
+  } = props;
 
   return (
-    <Fragment>
+    <Container>
       {label && (
-        <label htmlFor={inputProps.id}>{label}</label>
+        <Label
+          constrast={constrast}
+          htmlFor={inputProps.id}
+        >
+          <span>{label}</span>
+          {hint && (
+            <span>{`(${hint})`}</span>
+          )}
+        </Label>
       )}
       <Input {...inputProps} />
-    </Fragment>
+    </Container>
   );
 };
+
+TextField.defaultProps = defaultProps;
 
 export default TextField;

@@ -15,23 +15,26 @@ const Filter: React.FC<Props> = (props) => {
     >
       <div>
         <TextField
-          label="Matérias"
-          type="text"
           id="subject"
+          type="text"
+          label="Matérias"
+          constrast
         />
       </div>
       <div>
         <TextField
-          label="Dia da Semana"
-          type="text"
           id="week_day"
+          type="text"
+          label="Dia da Semana"
+          constrast
         />
       </div>
       <div>
         <TextField
-          label="Tempo"
-          type="text"
           id="time"
+          type="text"
+          label="Tempo"
+          constrast
         />
       </div>
     </Container>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Content } from './styles';
 
 interface Props {
@@ -20,9 +20,9 @@ const Fieldset: React.FC<Props> = (props) => {
           <h3>{title}</h3>
         </legend>
         <hr />
-        <div>
+        <Fragment>
           {children}
-        </div>
+        </Fragment>
       </Content>
     </fieldset>
   );
