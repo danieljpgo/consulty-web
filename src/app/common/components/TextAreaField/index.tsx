@@ -1,7 +1,7 @@
-import React, { InputHTMLAttributes } from 'react';
-import { Container, Input, Label } from './styles';
+import React, { TextareaHTMLAttributes } from 'react';
+import { Container, Label, TextArea } from './styles';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string,
   hint?: string,
   constrast?: boolean,
@@ -11,7 +11,7 @@ const defaultProps = {
   constrast: false,
 };
 
-const TextField: React.FC<Props> = (props) => {
+const TextAreaField: React.FC<Props> = (props) => {
   const {
     label,
     hint,
@@ -32,11 +32,11 @@ const TextField: React.FC<Props> = (props) => {
           )}
         </Label>
       )}
-      <Input {...inputProps} />
+      <TextArea {...inputProps} />
     </Container>
   );
 };
 
-TextField.defaultProps = defaultProps;
+TextAreaField.defaultProps = defaultProps;
 
-export default TextField;
+export default TextAreaField;

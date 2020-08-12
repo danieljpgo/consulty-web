@@ -3,6 +3,7 @@ import { Container, Content } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
+import TextAreaField from '../../../common/components/TextAreaField';
 
 const Form: React.FC = () => (
   <Container>
@@ -24,6 +25,10 @@ const Form: React.FC = () => (
           type="text"
           label="Whatsapp"
           hint="somente números"
+        />
+        <TextAreaField
+          id="bio"
+          label="Biografia"
         />
       </Fieldset>
 
