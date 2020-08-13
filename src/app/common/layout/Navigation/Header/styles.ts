@@ -26,9 +26,4 @@ export const Brand = styled.div`
     height: 1rem;
     display: flex;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
-    img{
-      height: 0.8rem;
-    }
-  }
 `;

@@ -27,6 +27,7 @@ const size = {
     grid-gap: ${(props) => props.theme.unit / 4}rem;
     img {
       width: 1.4rem;
+      height: 1.4rem;
     }
 
     @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
@@ -39,6 +40,7 @@ const size = {
     grid-gap: ${(props) => props.theme.unit / 2}rem;
     img {
       width: 2rem;
+      height: 2rem;
     }
 
     @media (min-width: ${(props) => props.theme.breakpoints.small}px) {

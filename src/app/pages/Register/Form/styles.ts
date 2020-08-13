@@ -28,6 +28,7 @@ export const Container = styled.div`
       grid-template-columns: max-content auto;
       grid-gap: ${(props) => props.theme.unit}rem;
       justify-content: space-between;
+      padding: ${(props) => props.theme.unit}rem ${(props) => props.theme.unit * 1.5}rem;
       > div {
         display: grid;
         grid-template-columns: auto auto;
@@ -42,6 +43,10 @@ export const Content = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit}rem;
   padding: ${(props) => props.theme.unit}rem;
+
+  @media(min-width: ${(props) => props.theme.breakpoints.small}px) {
+    padding: ${(props) => props.theme.unit}rem ${(props) => props.theme.unit * 1.5}rem;
+  }
 `;
 
 export const InputsContainer = styled.div`

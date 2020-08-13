@@ -4,10 +4,12 @@ export const Container = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
   padding-top: ${(props) => props.theme.unit / 2}rem;
+  padding-bottom: ${(props) => props.theme.unit}rem;
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {  
     grid-gap: ${(props) => props.theme.unit}rem;
     padding-top: ${(props) => props.theme.unit / 2}rem;
+    padding-bottom: ${(props) => props.theme.unit * 2}rem;
   }
 
   footer{

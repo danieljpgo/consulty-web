@@ -44,7 +44,7 @@ export const Container = styled.article`
     background-color: ${(props) => props.theme.colors.surface.constrast};
     display: grid;
     grid-template-columns: max-content auto;
-    grid-gap: ${(props) => props.theme.unit}rem;
+    grid-gap: ${(props) => props.theme.unit / 2}rem;
     justify-content: space-between;
     border-top: solid 1px ${(props) => props.theme.colors.lines.constrast};
     > div {
@@ -72,6 +72,10 @@ export const Container = styled.article`
           align-self: center;
         }
       }
+    }
+
+    @media (max-width: 388px) {
+      grid-template-columns: 1fr;
     }
   }
 `;

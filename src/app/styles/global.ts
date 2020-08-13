@@ -25,6 +25,21 @@ export default createGlobalStyle`
       color: ${(props) => props.theme.colors.text.base};
     }
     
+    hr {
+      border-color: ${(props) => props.theme.colors.lines.constrast};
+      border-style: solid;
+    }
+
+    h1, h2, h3, h4, h5, h6{
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+
+    legend{
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
+
     button {
       cursor: pointer;
     }
