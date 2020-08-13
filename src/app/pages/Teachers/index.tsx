@@ -11,7 +11,9 @@ const Teachers: React.FC = () => {
   return (
     <Container>
       <h1>
-        Estes são os proffys disponíveis.
+        Estes são os
+        <br />
+        proffys disponíveis.
       </h1>
 
       <Content>

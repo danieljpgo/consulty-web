@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit}rem;
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
   padding-top: ${(props) => props.theme.unit / 2}rem;
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {  
-    grid-gap: 2.6rem;
-    padding-top: ${(props) => props.theme.unit * 2}rem;
+    grid-gap: ${(props) => props.theme.unit}rem;
+    padding-top: ${(props) => props.theme.unit / 2}rem;
   }
 
   footer{

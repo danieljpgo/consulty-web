@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content } from './styles';
+import { Container, Content, InputsContainer } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
@@ -48,7 +48,23 @@ const Form: React.FC = () => (
       </Fieldset>
 
       <Fieldset title="Horários disponíveis">
-        a
+        <InputsContainer>
+          <SelectField
+            id="day"
+            label="Dia da semana"
+            options={[{ label: 'Selecione o dia', value: 'undefined' }]}
+          />
+          <TextField
+            id="from"
+            type="number"
+            label="Das"
+          />
+          <TextField
+            id="to"
+            type="number"
+            label="Até"
+          />
+        </InputsContainer>
       </Fieldset>
     </Content>
     <footer>

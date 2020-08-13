@@ -1,7 +1,6 @@
 import React, { SelectHTMLAttributes } from 'react';
-import {
-  Container, Label, Select, Option,
-} from './styles';
+import { Container, Select, Option } from './styles';
+import Label from '../Label';
 
 interface Option {
   label: string,

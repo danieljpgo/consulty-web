@@ -1,5 +1,6 @@
 import React, { TextareaHTMLAttributes } from 'react';
-import { Container, Label, TextArea } from './styles';
+import { Container, TextArea } from './styles';
+import Label from '../Label';
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string,

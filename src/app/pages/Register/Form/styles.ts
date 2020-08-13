@@ -43,3 +43,12 @@ export const Content = styled.div`
   grid-gap: ${(props) => props.theme.unit}rem;
   padding: ${(props) => props.theme.unit}rem;
 `;
+
+export const InputsContainer = styled.div`
+  display: grid;
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  div:first-child{
+    grid-column: span 2;
+  }
+`;

@@ -9,11 +9,10 @@ export const Container = styled.div`
     font-size: 1.8rem;
     font-family: Archivo;
     color: ${(props) => props.theme.colors.text.constrast};
-    max-width: 20rem;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {  
-    grid-gap: 2.6rem;
+    grid-gap: ${(props) => props.theme.unit * 2}rem;
     padding-top: ${(props) => props.theme.unit * 2}rem;
   }
 `;
