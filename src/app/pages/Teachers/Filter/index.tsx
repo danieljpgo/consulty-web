@@ -10,9 +10,7 @@ const Filter: React.FC<Props> = (props) => {
   const { onSubmit } = props;
 
   return (
-    <Container
-      onSubmit={onSubmit}
-    >
+    <Container onSubmit={onSubmit}>
       <div>
         <TextField
           id="subject"

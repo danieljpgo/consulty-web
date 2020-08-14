@@ -17,5 +17,8 @@ export const Select = styled.select`
 `;
 
 export const Option = styled.option`
-
+  height: ${(props) => props.theme.unit * 2}rem;
+  background-color: ${(props) => props.theme.colors.surface.input};
+  border: 1px solid ${(props) => props.theme.colors.lines.constrast};
+  font: 1rem Archivo;
 `;

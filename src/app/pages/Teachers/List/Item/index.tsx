@@ -9,6 +9,7 @@ interface Props {
   type: string,
   description: string,
   history: string,
+  onWhatsappClick: () => void,
 }
 
 const Item: React.FC<Props> = (props) => {
@@ -17,11 +18,8 @@ const Item: React.FC<Props> = (props) => {
     type,
     description,
     history,
+    onWhatsappClick,
   } = props;
-
-  function handleWhatsappClick() {
-    console.log('click');
-  }
 
   return (
     <Container>
@@ -48,7 +46,7 @@ const Item: React.FC<Props> = (props) => {
           alt="Whatsapp"
           size="small"
           styleVariants="secundary"
-          onClick={() => handleWhatsappClick()}
+          onClick={() => onWhatsappClick()}
         >
           Entrar em contato
         </Button>

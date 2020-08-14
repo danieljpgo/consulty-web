@@ -34,6 +34,9 @@ export const Container = styled.div`
         grid-template-columns: auto auto;
         grid-column-gap: ${(props) => props.theme.unit / 2}rem;
         align-items: center;
+        img{
+          grid-row: span 2;
+        }
       }
     }
   }
