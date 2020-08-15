@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Content, InputsContainer } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
@@ -6,10 +6,21 @@ import TextField from '../../../common/components/TextField';
 import TextAreaField from '../../../common/components/TextAreaField';
 import SelectField from '../../../common/components/SelectField';
 import warningIcon from '../../../common/assets/icons/warning.svg';
+import { days, subject } from '../../../common/utils/constants';
+
+interface Schedule {
+  day_of_week: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+  from: string,
+  to: string,
+}
+
+const scheduleDefault: Schedule[] = [{ day_of_week: 0, from: '', to: '' }];
 
 const Form: React.FC = () => {
-  function handleAddSchedule() {
-    console.log('teste');
+  const [schedules, setSchedules] = useState<Schedule[]>(scheduleDefault);
+
+  function handleAddSchedule(schedule: Schedule) {
+    setSchedules((prev) => [...prev, schedule]);
   }
 
   return (
@@ -42,7 +53,8 @@ const Form: React.FC = () => {
           <SelectField
             id="subject"
             label="Matéria"
-            options={[{ label: 'Selecione qual você quer ensinar', value: 'undefined' }]}
+            options={subject}
+            defaultValue="undefined"
           />
           <TextField
             id="price"
@@ -54,25 +66,28 @@ const Form: React.FC = () => {
         <Fieldset
           title="Horários disponíveis"
           action="Novo horário"
-          onAddSchedule={() => handleAddSchedule()}
+          onAddSchedule={() => handleAddSchedule(scheduleDefault[0])}
         >
-          <InputsContainer>
-            <SelectField
-              id="day"
-              label="Dia da semana"
-              options={[{ label: 'Selecione o dia', value: 'undefined' }]}
-            />
-            <TextField
-              id="from"
-              type="number"
-              label="Das"
-            />
-            <TextField
-              id="to"
-              type="number"
-              label="Até"
-            />
-          </InputsContainer>
+          {schedules.map((schedule: Schedule) => (
+            <InputsContainer key={schedule.day_of_week}>
+              <SelectField
+                id="day"
+                label="Dia da semana"
+                options={days}
+                defaultValue="undefined"
+              />
+              <TextField
+                id="from"
+                type="time"
+                label="Das"
+              />
+              <TextField
+                id="to"
+                type="time"
+                label="Até"
+              />
+            </InputsContainer>
+          ))}
         </Fieldset>
       </Content>
 

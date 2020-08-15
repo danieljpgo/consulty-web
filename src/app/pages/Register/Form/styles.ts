@@ -34,6 +34,7 @@ export const Container = styled.div`
         grid-template-columns: auto auto;
         grid-column-gap: ${(props) => props.theme.unit / 2}rem;
         align-items: center;
+        color: ${(props) => props.theme.colors.subtext.base};
         img{
           grid-row: span 2;
         }
@@ -55,8 +56,5 @@ export const Content = styled.div`
 export const InputsContainer = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  div:first-child{
-    grid-column: span 2;
-  }
+  grid-template-columns: 2fr 1fr 1fr;
 `;

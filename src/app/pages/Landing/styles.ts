@@ -24,6 +24,7 @@ export const Brand = styled.div`
   h2{
     font-weight: 500;
     font-size: 1.4rem;
+    font-family: Poppins;
     color: ${(props) => props.theme.colors.title.base};
   }
   img{

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container } from './styles';
 import TextField from '../../../common/components/TextField';
+import SelectField from '../../../common/components/SelectField';
+import { days, subject } from '../../../common/utils/constants';
 
 interface Props {
   onSubmit: (e: any) => void;
@@ -12,25 +14,27 @@ const Filter: React.FC<Props> = (props) => {
   return (
     <Container onSubmit={onSubmit}>
       <div>
-        <TextField
+        <SelectField
           id="subject"
-          type="text"
           label="Matérias"
+          options={subject}
+          defaultValue="undefined"
           constrast
         />
       </div>
       <div>
-        <TextField
+        <SelectField
           id="week_day"
-          type="text"
           label="Dia da Semana"
+          options={days}
+          defaultValue="undefined"
           constrast
         />
       </div>
       <div>
         <TextField
           id="time"
-          type="text"
+          type="time"
           label="Tempo"
           constrast
         />

@@ -32,7 +32,6 @@ export const Content = styled.div`
 
   h1{
     font-size: 1.8rem;
-    font-family: Archivo;
     color: ${(props) => props.theme.colors.text.constrast};
     max-width: 20rem;
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Container,
@@ -13,13 +13,22 @@ import Button from '../../common/components/Button';
 import studyIcon from '../../common/assets/icons/study.svg';
 import classIcon from '../../common/assets/icons/give-classes.svg';
 import purpleHeart from '../../common/assets/icons/purple-heart.svg';
+import api from '../../common/services/api';
 
 const Landing: React.FC = () => {
+  const [totalConnection, setTotalConnection] = useState(0);
   const history = useHistory();
+
+  useEffect(() => {
+    api.get('connections/count')
+      .then((response) => setTotalConnection(response.data.total));
+  }, []);
 
   function handleClick(path: string) {
     history.push(path);
   }
+
+  const labelConnection = `Total de ${totalConnection} conexões já realizadas`;
 
   return (
     <Container>
@@ -60,7 +69,7 @@ const Landing: React.FC = () => {
 
         <Counter>
           <span>
-            Total de 200 conexões já realizadas
+            {labelConnection}
             <img
               src={purpleHeart}
               alt="Coração roxo"
