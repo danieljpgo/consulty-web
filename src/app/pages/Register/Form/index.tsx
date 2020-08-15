@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { Container, Content, InputsContainer } from './styles';
+import React from 'react';
+import {
+  Formik, FormikHelpers, Field, FieldArray,
+} from 'formik';
+import { Container, Form as FormContent, InputsContainer } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
@@ -9,87 +12,137 @@ import warningIcon from '../../../common/assets/icons/warning.svg';
 import { days, subject } from '../../../common/utils/constants';
 
 interface Schedule {
-  day_of_week: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+  dayOfWeek: 0 | 1 | 2 | 3 | 4 | 5 | 6,
   from: string,
   to: string,
 }
 
-const scheduleDefault: Schedule[] = [{ day_of_week: 0, from: '', to: '' }];
+interface FormProps {
+  name: string,
+  picture: string,
+  whatsapp: string,
+  bio: string,
+  subject: string,
+  schedules: Schedule[],
+}
+
+const initialValues: FormProps = {
+  name: '',
+  picture: '',
+  whatsapp: '',
+  bio: '',
+  subject: '',
+  schedules: [{ dayOfWeek: 0, from: '', to: '' }],
+};
 
 const Form: React.FC = () => {
-  const [schedules, setSchedules] = useState<Schedule[]>(scheduleDefault);
+  // function handleAddSchedule(schedule: Schedule) {
+  //   setSchedules((prev) => [...prev, schedule]);
+  // }
 
-  function handleAddSchedule(schedule: Schedule) {
-    setSchedules((prev) => [...prev, schedule]);
+  function handleFormSubmit(values: FormProps, helper: FormikHelpers<FormProps>) {
+    console.log(values);
+    console.log(helper);
   }
 
   return (
     <Container>
-      <Content>
-        <Fieldset title="Seus dados">
-          <TextField
-            id="name"
-            type="text"
-            label="Nome completo"
-          />
-          <TextField
-            id="picture"
-            type="text"
-            label="Link da sua foto"
-            hint="comece com http://"
-          />
-          <TextField
-            id="whatsapp"
-            type="text"
-            label="Whatsapp"
-            hint="somente números"
-          />
-          <TextAreaField
-            id="bio"
-            label="Biografia"
-          />
-        </Fieldset>
-        <Fieldset title="Sobre a aula">
-          <SelectField
-            id="subject"
-            label="Matéria"
-            options={subject}
-            defaultValue="undefined"
-          />
-          <TextField
-            id="price"
-            type="text"
-            label="Custo da sua hora por aula"
-            hint="em R$"
-          />
-        </Fieldset>
-        <Fieldset
-          title="Horários disponíveis"
-          action="Novo horário"
-          onAddSchedule={() => handleAddSchedule(scheduleDefault[0])}
-        >
-          {schedules.map((schedule: Schedule) => (
-            <InputsContainer key={schedule.day_of_week}>
-              <SelectField
-                id="day"
-                label="Dia da semana"
-                options={days}
-                defaultValue="undefined"
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values, helper) => handleFormSubmit(values, helper)}
+      >
+        {({ values, errors, handleSubmit }) => (
+          <FormContent onSubmit={handleSubmit}>
+            <Fieldset title="Seus dados">
+              <Field
+                id="name"
+                name="name"
+                type="text"
+                label="Nome completo"
+                as={TextField}
               />
-              <TextField
-                id="from"
-                type="time"
-                label="Das"
+              <Field
+                id="picture"
+                name="picture"
+                type="text"
+                label="Link da sua foto"
+                hint="comece com http://"
+                as={TextField}
               />
-              <TextField
-                id="to"
-                type="time"
-                label="Até"
+              <Field
+                id="whatsapp"
+                name="whatsapp"
+                type="text"
+                label="Whatsapp"
+                hint="somente números"
+                as={TextField}
               />
-            </InputsContainer>
-          ))}
-        </Fieldset>
-      </Content>
+              <Field
+                id="bio"
+                name="bio"
+                label="Biografia"
+                as={TextAreaField}
+              />
+            </Fieldset>
+            <Fieldset title="Sobre a aula">
+              <Field
+                id="subject"
+                name="subject"
+                label="Matéria"
+                options={subject}
+                as={SelectField}
+              />
+              <Field
+                id="price"
+                name="price"
+                type="text"
+                label="Custo da sua hora por aula"
+                hint="em R$"
+                as={TextField}
+              />
+            </Fieldset>
+            <FieldArray name="schedules">
+              {({ push }) => (
+                <Fieldset
+                  title="Horários disponíveis"
+                  action="Novo horário"
+                  onAddSchedule={() => push(initialValues.schedules[0])}
+                >
+                  {values.schedules.map((schedule: Schedule, index) => (
+                    <InputsContainer key={index.toString()}>
+                      <Field
+                        id={`schedules.${index}.dayOfWeek`}
+                        name={`schedules.${index}.dayOfWeek`}
+                        label="Dia da semana"
+                        options={days}
+                        as={SelectField}
+                      />
+                      <Field
+                        id={`schedules.${index}.from`}
+                        name={`schedules.${index}.from`}
+                        type="time"
+                        label="Das"
+                        as={TextField}
+                      />
+                      <Field
+                        id={`schedules.${index}.to`}
+                        name={`schedules.${index}.to`}
+                        type="time"
+                        label="Até"
+                        as={TextField}
+                      />
+                    </InputsContainer>
+                  ))}
+                </Fieldset>
+              )}
+            </FieldArray>
+            <pre>
+              {JSON.stringify(values, null, 2)}
+              {JSON.stringify(errors, null, 2)}
+            </pre>
+          </FormContent>
+        )}
+      </Formik>
 
       <footer>
         <div>

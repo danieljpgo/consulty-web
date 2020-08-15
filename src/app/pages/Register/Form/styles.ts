@@ -43,7 +43,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Form = styled.form`
   display: grid;
   grid-gap: ${(props) => props.theme.unit}rem;
   padding: ${(props) => props.theme.unit}rem;
