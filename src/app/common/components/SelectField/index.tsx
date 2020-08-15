@@ -11,6 +11,7 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string,
   hint?: string,
   constrast?: boolean,
+  error?: string,
   options: Option[]
 }
 
@@ -25,22 +26,32 @@ const SelectField: React.FC<Props> = (props) => {
     hint,
     options,
     constrast,
+    error,
     ...selectProps
   } = props;
 
+  const TextLabel = () => (
+    <Label
+      constrast={constrast}
+      htmlFor={selectProps.id}
+    >
+      {label}
+      {hint && (<span>{`(${hint})`}</span>)}
+    </Label>
+  );
+
+  const ErrorLabel = () => (
+    <Label
+      error
+      htmlFor={selectProps.id}
+    >
+      {error}
+    </Label>
+  );
+
   return (
     <Container>
-      {label && (
-        <Label
-          constrast={constrast}
-          htmlFor={selectProps.id}
-        >
-          <span>{label}</span>
-          {hint && (
-            <span>{`(${hint})`}</span>
-          )}
-        </Label>
-      )}
+      {label && <TextLabel />}
       <Select {...selectProps}>
         {options.map((option) => (
           <Option
@@ -51,6 +62,7 @@ const SelectField: React.FC<Props> = (props) => {
           </Option>
         ))}
       </Select>
+      {error && <ErrorLabel />}
     </Container>
   );
 };

@@ -19,6 +19,7 @@ export default {
       main: colors.green['500'],
       dark: colors.green['700'],
     },
+    warning: colors.red['300'],
     text: {
       base: colors.purple['200'],
       constrast: colors.white,

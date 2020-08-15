@@ -57,4 +57,5 @@ export const InputsContainer = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
   grid-template-columns: 2fr 1fr 1fr;
+  align-items: flex-start;
 `;

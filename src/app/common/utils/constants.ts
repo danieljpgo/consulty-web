@@ -1,5 +1,5 @@
 export const subject = [
-  { label: 'Selecione qual você quer ensinar', value: 'undefined' },
+  { label: 'Selecione qual você quer ensinar', value: '' },
   { label: 'Artes', value: 'Artes' },
   { label: 'Ciências', value: 'Ciências' },
   { label: 'Matemática', value: 'Matemática' },
@@ -7,7 +7,7 @@ export const subject = [
 ];
 
 export const days = [
-  { label: 'Selecione o dia da semana', value: 'undefined' },
+  { label: 'Selecione o dia da semana', value: '-1' },
   { label: 'Domingo', value: '0' },
   { label: 'Segunda-feira', value: '1' },
   { label: 'Terça-feira', value: '2' },

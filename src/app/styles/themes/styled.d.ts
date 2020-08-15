@@ -21,6 +21,7 @@ interface Colors {
   lines: {
     constrast: string,
   },
+  warning: string,
   text: {
     base: string,
     constrast: string,
