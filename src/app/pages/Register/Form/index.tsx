@@ -7,79 +7,139 @@ import {
   FormikErrors,
 } from 'formik';
 import * as yup from 'yup';
-import { Container, Form as FormContent, InputsContainer } from './styles';
+import { Container, Content, InputsContainer } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
 import TextAreaField from '../../../common/components/TextAreaField';
 import SelectField from '../../../common/components/SelectField';
 import warningIcon from '../../../common/assets/icons/warning.svg';
-import { days, subject } from '../../../common/utils/constants';
-import { errorRequired } from '../../../common/utils/errors';
+import { days, subject as subjectItems } from '../../../common/utils/constants';
+import { errorRequired, brazilianCellRegex, nameRegex } from '../../../common/utils/errors';
+import api from '../../../common/services/api';
 
 interface Schedule {
-  dayOfWeek: '0' | '1' | '2' | '3' | '4' | '5' | '6',
+  daysOfWeek: '0' | '1' | '2' | '3' | '4' | '5' | '6',
   from: string,
   to: string,
 }
 
 interface FormProps {
   name: string,
-  picture: string,
+  avatar: string,
   whatsapp: string,
   bio: string,
   subject: string,
-  price: string,
+  cost: string,
   schedules: Schedule[],
 }
 
 const initialValues: FormProps = {
   name: '',
-  picture: '',
+  avatar: '',
   whatsapp: '',
   bio: '',
   subject: '',
-  price: '',
-  schedules: [{ dayOfWeek: '1', from: '', to: '' }],
+  cost: '',
+  schedules: [{
+    daysOfWeek: '1', from: '', to: '',
+  }],
 };
 
+function uniqueTest(ref: yup.TestContext, value: any): boolean {
+  const array = (ref as any).from[1].value.schedules;
+  return !(array.find((schedule: Schedule, index: number) => (
+    (index !== (ref.options as any).index) && schedule.daysOfWeek === value)));
+}
+
 const validationSchema = yup.object({
-  name: yup.string().required(errorRequired('nome')),
-  picture: yup.string().required(errorRequired('foto')),
-  whatsapp: yup.string().required(errorRequired('whatsapp')),
-  bio: yup.string().required(errorRequired('biografia')),
-  subject: yup.string().required(errorRequired('matéria')),
-  price: yup.string().required(errorRequired('preço')),
-  schedules: yup.array().of(yup.object().shape({
-    dayOfWeek: yup.string()
-      .oneOf(['0', '1', '2', '3', '4', '5', '6'], 'selecione uma data valida.')
-      .required(errorRequired('dia da semana')),
-    from: yup.string().required(errorRequired('campo')),
-    to: yup.string().required(errorRequired('campo')),
-  })),
+  name: yup
+    .string()
+    .matches(nameRegex, 'inserir nome e sobrenome.')
+    .min(5, 'inserir o nome completo.')
+    .required(errorRequired('nome')),
+  avatar: yup
+    .string()
+    .url('inserir um url válida.')
+    .required(errorRequired('foto')),
+  whatsapp: yup
+    .string()
+    .matches(brazilianCellRegex, 'inserir um número de telefone válido.')
+    .required(errorRequired('whatsapp')),
+  bio: yup
+    .string()
+    .required(errorRequired('biografia')),
+  subject: yup
+    .string()
+    .required(errorRequired('matéria')),
+  cost: yup
+    .number()
+    .positive('apenas valores positivos.')
+    .integer('inserir um valor inteiro.')
+    .required(errorRequired('preço')),
+  schedules: yup
+    .array()
+    .of(yup.object({
+      daysOfWeek: yup
+        .string()
+        .oneOf(['0', '1', '2', '3', '4', '5', '6'], 'selecione uma data valida.')
+        .test('unique', 'dia da semana já selecionado.', function (value) { return uniqueTest(this, value); })
+        .required(errorRequired('dia da semana')),
+      from: yup
+        .string()
+        .required(errorRequired('campo')),
+      to: yup
+        .string()
+        .required(errorRequired('campo')),
+    })),
 });
 
 const Form: React.FC = () => {
   function handleFormSubmit(values: FormProps, helper: FormikHelpers<FormProps>) {
-    console.log(values);
+    const {
+      name,
+      avatar,
+      whatsapp,
+      bio,
+      subject,
+      cost,
+      schedules,
+    } = values;
+
+    const body = {
+      name,
+      avatar,
+      whatsapp,
+      bio,
+      subject,
+      cost,
+      schedule: schedules.map((item) => ({
+        week_day: Number(item.daysOfWeek),
+        to: item.to,
+        from: item.from,
+      })),
+    };
     console.log(helper);
+
+    api
+      .post('classes', body)
+      .then(console.log)
+      .catch(console.log);
   }
 
   return (
-    <Container>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values, helper) => handleFormSubmit(values, helper)}
-      >
-        {({
-          values, errors, handleSubmit, touched,
-        }) => (
-            <FormContent onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-            >
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values, helper) => handleFormSubmit(values, helper)}
+    >
+      {({
+        values, errors, handleSubmit, touched,
+      }) => (
+          <Container
+            onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
+          >
+            <Content>
               <Fieldset title="Seus dados">
                 <Field
                   id="name"
@@ -90,12 +150,12 @@ const Form: React.FC = () => {
                   as={TextField}
                 />
                 <Field
-                  id="picture"
-                  name="picture"
+                  id="avatar"
+                  name="avatar"
                   type="text"
                   label="Link da sua foto"
                   hint="comece com http://"
-                  error={touched.picture && errors.picture}
+                  error={touched.avatar && errors.avatar}
                   as={TextField}
                 />
                 <Field
@@ -103,8 +163,9 @@ const Form: React.FC = () => {
                   name="whatsapp"
                   type="text"
                   label="Whatsapp"
-                  hint="somente números"
+                  hint="somente números com DD"
                   error={touched.whatsapp && errors.whatsapp}
+                  maxLength="11"
                   as={TextField}
                 />
                 <Field
@@ -120,17 +181,17 @@ const Form: React.FC = () => {
                   id="subject"
                   name="subject"
                   label="Matéria"
-                  options={subject}
+                  options={subjectItems}
                   error={touched.subject && errors.subject}
                   as={SelectField}
                 />
                 <Field
-                  id="price"
-                  name="price"
-                  type="text"
+                  id="cost"
+                  name="cost"
+                  type="number"
                   label="Custo da sua hora por aula"
                   hint="em R$"
-                  error={touched.price && errors.price}
+                  error={touched.cost && errors.cost}
                   as={TextField}
                 />
               </Fieldset>
@@ -141,17 +202,19 @@ const Form: React.FC = () => {
                     action="Novo horário"
                     onAddSchedule={() => push(initialValues.schedules[0])}
                   >
-                    {values.schedules.map((schedule: Schedule, index) => (
+                    {values.schedules.map((schedule, index) => (
                       <InputsContainer key={index.toString()}>
                         <Field
-                          id={`schedules.${index}.dayOfWeek`}
-                          name={`schedules.${index}.dayOfWeek`}
+                          id={`schedules.${index}.daysOfWeek`}
+                          name={`schedules.${index}.daysOfWeek`}
                           label="Dia da semana"
                           options={days}
-                          error={touched.schedules
-                            && touched.schedules[index]?.dayOfWeek
+                          error={
+                            touched.schedules
+                            && touched.schedules[index]?.daysOfWeek
                             && errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.dayOfWeek}
+                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek
+                          }
                           as={SelectField}
                         />
                         <Field
@@ -185,33 +248,27 @@ const Form: React.FC = () => {
                   </Fieldset>
                 )}
               </FieldArray>
-              <pre>
-                {JSON.stringify(values, null, 2)}
-                {JSON.stringify(errors, null, 2)}
-                {JSON.stringify(touched, null, 2)}
-              </pre>
-            </FormContent>
-          )}
-      </Formik>
-
-      <footer>
-        <div>
-          <img
-            src={warningIcon}
-            alt="Aviso"
-          />
-          <div>Importante !</div>
-          <div>Preencha todos os dados</div>
-        </div>
-        <Button
-          type="button"
-          size="small"
-          styleVariants="secundary"
-        >
-          Salvar cadastro
-        </Button>
-      </footer>
-    </Container>
+            </Content>
+            <footer>
+              <div>
+                <img
+                  src={warningIcon}
+                  alt="Aviso"
+                />
+                <div>Importante !</div>
+                <div>Preencha todos os dados</div>
+              </div>
+              <Button
+                type="submit"
+                size="small"
+                styleVariants="secundary"
+              >
+                Salvar cadastro
+            </Button>
+            </footer>
+          </Container>
+        )}
+    </Formik>
   );
 };
 

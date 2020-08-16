@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: grid;
   border-radius: ${(props) => props.theme.shapes.borderRadius}rem;
   background-color: ${(props) => props.theme.colors.surface.base};
@@ -43,7 +43,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Content = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit}rem;
   padding: ${(props) => props.theme.unit}rem;
