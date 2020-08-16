@@ -17,6 +17,7 @@ const Label = styled.label<Props>`
   `}
   ${(props) => props.error && `
     color:${props.theme.colors.warning};
+    grid-template-columns: 1fr;
   `}
 `;
 

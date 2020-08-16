@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   Formik,
-  FormikHelpers,
   Field,
   FieldArray,
   FormikErrors,
 } from 'formik';
 import * as yup from 'yup';
+import { useHistory } from 'react-router-dom';
 import { Container, Content, InputsContainer } from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
@@ -42,7 +42,7 @@ const initialValues: FormProps = {
   subject: '',
   cost: '',
   schedules: [{
-    daysOfWeek: '1', from: '', to: '',
+    daysOfWeek: '0', from: '', to: '',
   }],
 };
 
@@ -95,7 +95,9 @@ const validationSchema = yup.object({
 });
 
 const Form: React.FC = () => {
-  function handleFormSubmit(values: FormProps, helper: FormikHelpers<FormProps>) {
+  const history = useHistory();
+
+  function handleFormSubmit(values: FormProps) {
     const {
       name,
       avatar,
@@ -119,11 +121,10 @@ const Form: React.FC = () => {
         from: item.from,
       })),
     };
-    console.log(helper);
 
     api
       .post('classes', body)
-      .then(console.log)
+      .then(() => history.push('/'))
       .catch(console.log);
   }
 
@@ -131,7 +132,7 @@ const Form: React.FC = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, helper) => handleFormSubmit(values, helper)}
+      onSubmit={(values) => handleFormSubmit(values)}
     >
       {({
         values, errors, handleSubmit, touched,
@@ -209,12 +210,8 @@ const Form: React.FC = () => {
                           name={`schedules.${index}.daysOfWeek`}
                           label="Dia da semana"
                           options={days}
-                          error={
-                            touched.schedules
-                            && touched.schedules[index]?.daysOfWeek
-                            && errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek
-                          }
+                          error={errors.schedules
+                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek}
                           as={SelectField}
                         />
                         <Field

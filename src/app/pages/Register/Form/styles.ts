@@ -56,6 +56,14 @@ export const Content = styled.div`
 export const InputsContainer = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr fr;
   align-items: flex-start;
+
+  div:first-child{
+    grid-column: span 2;
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.small}px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
