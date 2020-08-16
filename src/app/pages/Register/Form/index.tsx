@@ -19,7 +19,7 @@ import { errorRequired, brazilianCellRegex, nameRegex } from '../../../common/ut
 import api from '../../../common/services/api';
 
 interface Schedule {
-  daysOfWeek: '0' | '1' | '2' | '3' | '4' | '5' | '6',
+  daysOfWeek: '-1' | '0' | '1' | '2' | '3' | '4' | '5' | '6',
   from: string,
   to: string,
 }
@@ -42,7 +42,7 @@ const initialValues: FormProps = {
   subject: '',
   cost: '',
   schedules: [{
-    daysOfWeek: '0', from: '', to: '',
+    daysOfWeek: '-1', from: '', to: '',
   }],
 };
 
@@ -83,7 +83,9 @@ const validationSchema = yup.object({
       daysOfWeek: yup
         .string()
         .oneOf(['0', '1', '2', '3', '4', '5', '6'], 'selecione uma data valida.')
-        .test('unique', 'dia da semana já selecionado.', function (value) { return uniqueTest(this, value); })
+        .test('unique', 'dia da semana já selecionado.', function (value) {
+          return uniqueTest(this, value);
+        })
         .required(errorRequired('dia da semana')),
       from: yup
         .string()
@@ -135,7 +137,7 @@ const Form: React.FC = () => {
       onSubmit={(values) => handleFormSubmit(values)}
     >
       {({
-        values, errors, handleSubmit, touched,
+        values, errors, touched, handleSubmit,
       }) => (
           <Container
             onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
@@ -210,8 +212,12 @@ const Form: React.FC = () => {
                           name={`schedules.${index}.daysOfWeek`}
                           label="Dia da semana"
                           options={days}
-                          error={errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek}
+                          error={
+                            touched.schedules
+                            && touched.schedules[index]?.daysOfWeek
+                            && errors.schedules
+                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek
+                          }
                           as={SelectField}
                         />
                         <Field

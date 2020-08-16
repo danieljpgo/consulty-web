@@ -11,11 +11,17 @@ const variants = {
     :hover{
       background-color: ${(props) => props.theme.colors.primary.light};
     }
+    :disabled{
+      background-color: ${(props) => props.theme.colors.primary.disabled};
+    }
   `,
   secundary: css`
     background-color: ${(props) => props.theme.colors.secundary.main};
     :hover{
       background-color: ${(props) => props.theme.colors.secundary.dark};
+    }
+    :disabled{
+      background-color: ${(props) => props.theme.colors.secundary.disabled};
     }
   `,
 };
@@ -25,6 +31,7 @@ const size = {
     font-size: 1rem;
     padding: ${(props) => props.theme.unit / 2}rem;
     grid-gap: ${(props) => props.theme.unit / 4}rem;
+    height: ${(props) => props.theme.unit * 2}rem;
     img {
       width: 1.4rem;
       height: 1.4rem;
@@ -38,6 +45,7 @@ const size = {
     font-size: 1rem;
     padding: ${(props) => props.theme.unit / 2}rem;
     grid-gap: ${(props) => props.theme.unit / 2}rem;
+    height: ${(props) => props.theme.unit * 3.5}rem;
     img {
       width: 2rem;
       height: 2rem;
@@ -62,6 +70,10 @@ export const Container = styled.button<Props>`
   font-family: Archivo;
   color: ${(props) => props.theme.colors.text.constrast};
   
+  :disabled{
+    pointer-events: none;
+  }
+
   ${(props) => variants[props.styleVariants]}
   ${(props) => size[props.size]}
 `;

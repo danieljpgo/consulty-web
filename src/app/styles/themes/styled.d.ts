@@ -2,6 +2,7 @@ import 'styled-components';
 
 interface Colors {
   primary: {
+    disabled: string,
     lighter: string,
     light: string,
     main: string,
@@ -9,6 +10,7 @@ interface Colors {
     darker: string,
   },
   secundary: {
+    disabled: string,
     main: string,
     dark: string,
   },

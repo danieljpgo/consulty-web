@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Alert } from './styles';
 import Item from './Item';
+import { Teacher } from '../index';
 
 interface Props {
-  teachers: any[],
-  onWhatsappClick: () => void,
+  teachers: Teacher[],
+  onWhatsappClick: (whatsapp: string, user_id: number) => void,
 }
 
 const defaultProps = {
@@ -26,11 +27,13 @@ const List: React.FC<Props> = (props) => {
       {teachers.map((teacher) => (
         <Item
           key={teacher.id}
-          id={teacher.id}
           name={teacher.name}
-          type={teacher.type}
-          description={teacher.description}
-          history={teacher.history}
+          subject={teacher.subject}
+          bio={teacher.bio}
+          avatar={teacher.avatar}
+          whatsapp={teacher.whatsapp}
+          cost={teacher.cost}
+          user_id={teacher.user_id}
           onWhatsappClick={onWhatsappClick}
         />
       ))}

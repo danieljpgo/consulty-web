@@ -20,8 +20,12 @@ const Landing: React.FC = () => {
   const history = useHistory();
 
   useEffect(() => {
-    api.get('connections/count')
-      .then((response) => setTotalConnection(response.data.total));
+    const getTotalConnection = async () => {
+      const { data } = await api.get('connections/count');
+      setTotalConnection(data.total);
+    };
+
+    getTotalConnection();
   }, []);
 
   function handleClick(path: string) {

@@ -9,7 +9,7 @@ export const Content = styled.main`
   
   ::before{
     content: '';
-    height: 13.4rem;
+    height: 17.5rem;
     width: 100%;
     left: 0;
     top: 0;

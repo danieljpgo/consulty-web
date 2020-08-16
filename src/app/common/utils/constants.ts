@@ -1,5 +1,5 @@
 export const subject = [
-  { label: 'Selecione qual você quer ensinar', value: '' },
+  { label: 'Selecione uma matéria', value: '' },
   { label: 'Artes', value: 'Artes' },
   { label: 'Ciências', value: 'Ciências' },
   { label: 'Matemática', value: 'Matemática' },

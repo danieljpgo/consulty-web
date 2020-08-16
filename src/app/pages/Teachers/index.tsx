@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Content } from './styles';
-import Filter from './Filter';
+import Filter, { Filter as FilterValues } from './Filter';
 import List from './List';
+import api from '../../common/services/api';
 
-const mock = [
-  {
-    id: '1', name: 'Daniel Jorge', type: 'educação fisica', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus convallis dignissim', history: 'Donec viverra urna vel neque finibus imperdiet. Morbi fermentum nibh neque, aliquet lacinia odio fringilla eu.',
-  },
-  {
-    id: '2', name: 'teste', type: 'educação fisica', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus convallis dignissim', history: 'Donec viverra urna vel neque finibus imperdiet. Morbi fermentum nibh neque, aliquet lacinia odio fringilla eu.',
-  },
-];
+export interface Teacher {
+  avatar: string,
+  bio: string,
+  cost: number,
+  id: number,
+  name: string,
+  subject: string,
+  user_id: number,
+  whatsapp: string,
+}
 
 const Teachers: React.FC = () => {
-  function handleFilterSubmit(e: any) {
-    console.log(e);
+  const [teachers, setTeachers] = useState<Teacher[]>([]);
+
+  async function handleFilterSubmit(filter: FilterValues) {
+    const params = {
+      week_day: filter.daysOfWeek,
+      subject: filter.subject,
+      time: filter.time,
+    };
+
+    const { data } = await api.get('classes', { params });
+
+    setTeachers(data);
   }
 
-  function handleWhatsappClick() {
-    console.log('teste');
+  async function handleWhatsappClick(whatsapp: string, user_id: number) {
+    const { data } = await api.post('connections', { user_id });
+    window.location.href = `https://wa.me/${whatsapp}`;
   }
 
   return (
@@ -32,8 +46,8 @@ const Teachers: React.FC = () => {
       <Content>
         <Filter onSubmit={handleFilterSubmit} />
         <List
-          teachers={mock}
-          onWhatsappClick={() => handleWhatsappClick()}
+          teachers={teachers}
+          onWhatsappClick={handleWhatsappClick}
         />
       </Content>
     </Container>

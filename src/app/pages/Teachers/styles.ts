@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit * 1.5}rem;;
+  grid-gap: ${(props) => props.theme.unit}rem;;
   padding-top: ${(props) => props.theme.unit}rem;
   padding-bottom: ${(props) => props.theme.unit}rem;
 

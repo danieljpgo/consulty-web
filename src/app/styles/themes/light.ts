@@ -9,6 +9,7 @@ export default {
 
   colors: {
     primary: {
+      disabled: colors.purple['100'],
       lighter: colors.purple['300'],
       light: colors.purple['400'],
       main: colors.purple['500'],
@@ -16,6 +17,7 @@ export default {
       darker: colors.purple['700'],
     },
     secundary: {
+      disabled: colors.green['100'],
       main: colors.green['500'],
       dark: colors.green['700'],
     },

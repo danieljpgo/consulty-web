@@ -4,20 +4,25 @@ import Button from '../../../../common/components/Button';
 import whatsappIcon from '../../../../common/assets/icons/whatsapp.svg';
 
 interface Props {
-  id: string,
   name: string,
-  type: string,
-  description: string,
-  history: string,
-  onWhatsappClick: () => void,
+  avatar: string,
+  subject: string,
+  bio: string,
+  whatsapp: string,
+  cost: number,
+  user_id: number,
+  onWhatsappClick: (whatsapp: string, user_id: number) => void,
 }
 
 const Item: React.FC<Props> = (props) => {
   const {
     name,
-    type,
-    description,
-    history,
+    avatar,
+    subject,
+    bio,
+    whatsapp,
+    cost,
+    user_id,
     onWhatsappClick,
   } = props;
 
@@ -27,18 +32,17 @@ const Item: React.FC<Props> = (props) => {
         <header>
           <img
             alt={name}
-            src="https://avatars0.githubusercontent.com/u/37938090?s=460&u=139da297b51ea25e70597485f65d346cc86ec2a5&v=4"
+            src={avatar}
           />
           <strong>{name}</strong>
-          <span>{type}</span>
+          <span>{subject}</span>
         </header>
-        <p>{description}</p>
-        <p>{history}</p>
+        <p>{bio}</p>
       </div>
       <footer>
         <div>
           <span>Preço/hora</span>
-          <strong>R$ 20,00</strong>
+          <strong>{`R$ ${cost}`}</strong>
         </div>
         <Button
           type="button"
@@ -46,7 +50,7 @@ const Item: React.FC<Props> = (props) => {
           alt="Whatsapp"
           size="small"
           styleVariants="secundary"
-          onClick={() => onWhatsappClick()}
+          onClick={() => onWhatsappClick(whatsapp, user_id)}
         >
           Entrar em contato
         </Button>
