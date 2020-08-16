@@ -31,7 +31,7 @@ const Teachers: React.FC = () => {
   }
 
   async function handleWhatsappClick(whatsapp: string, user_id: number) {
-    const { data } = await api.post('connections', { user_id });
+    await api.post('connections', { user_id });
     window.location.href = `https://wa.me/${whatsapp}`;
   }
 
