@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface Props {
   styleVariants: 'primary' | 'secundary',
@@ -58,7 +59,7 @@ const size = {
   `,
 };
 
-export const Container = styled.button<Props>`
+export const Container = styled(motion.button) <Props>`
   display: grid;
   grid-template-columns: min-content min-content;
   align-items: center;

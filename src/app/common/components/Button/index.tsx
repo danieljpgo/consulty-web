@@ -16,14 +16,25 @@ const Button: React.FC<Props> = (props) => {
     alt,
     size,
     styleVariants,
+    type,
+    disabled,
+    onClick,
     ...buttonProps
   } = props;
 
   return (
     <Container
-      {...buttonProps}
+      type={type}
       size={size}
+      disabled={disabled}
       styleVariants={styleVariants}
+      whileHover={{
+        scale: 1.05,
+      }}
+      whileTap={{
+        scale: 1,
+      }}
+      onClick={onClick}
     >
       {icon && (
         <img alt={alt} src={icon} />
