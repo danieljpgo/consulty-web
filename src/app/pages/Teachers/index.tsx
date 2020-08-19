@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Container, Content } from './styles';
 import Filter, { Filter as FilterValues } from './Filter';
 import List from './List';
 import api from '../../common/services/api';
+import { stagger, upInOut } from '../../common/utils/animations';
 
 export interface Teacher {
   avatar: string,
@@ -36,12 +38,17 @@ const Teachers: React.FC = () => {
   }
 
   return (
-    <Container>
-      <h1>
+    <Container
+      variants={stagger}
+      initial="hidden"
+      animate="show"
+      exit="out"
+    >
+      <motion.h1 variants={upInOut}>
         Estes são os
         <br />
         proffys disponíveis.
-      </h1>
+      </motion.h1>
 
       <Content>
         <Filter onSubmit={handleFilterSubmit} />

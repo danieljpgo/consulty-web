@@ -1,12 +1,14 @@
 import React from 'react';
 import * as yup from 'yup';
 import { Formik, Field } from 'formik';
+import { motion } from 'framer-motion';
 import { Container } from './styles';
 import TextField from '../../../common/components/TextField';
 import SelectField from '../../../common/components/SelectField';
 import { days, subject } from '../../../common/utils/constants';
 import Button from '../../../common/components/Button';
 import { errorRequired } from '../../../common/utils/errors';
+import { upInOut } from '../../../common/utils/animations';
 
 export interface Filter {
   subject: string,
@@ -48,7 +50,7 @@ const Filter: React.FC<Props> = (props) => {
     >
       {({ handleSubmit, isValid }) => (
         <Container onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-          <div>
+          <motion.div variants={upInOut}>
             <Field
               id="subject"
               name="subject"
@@ -57,8 +59,8 @@ const Filter: React.FC<Props> = (props) => {
               constrast
               as={SelectField}
             />
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={upInOut}>
             <Field
               id="daysOfWeek"
               name="daysOfWeek"
@@ -67,8 +69,8 @@ const Filter: React.FC<Props> = (props) => {
               constrast
               as={SelectField}
             />
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={upInOut}>
             <Field
               id="time"
               name="time"
@@ -77,7 +79,7 @@ const Filter: React.FC<Props> = (props) => {
               constrast
               as={TextField}
             />
-          </div>
+          </motion.div>
           <Button
             type="submit"
             size="small"

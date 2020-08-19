@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import { Container } from './styles';
+import { upInOut } from '../../utils/animations';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode,
@@ -19,7 +20,7 @@ const Button: React.FC<Props> = (props) => {
     type,
     disabled,
     onClick,
-    ...buttonProps
+    // ...buttonProps
   } = props;
 
   return (
@@ -28,6 +29,10 @@ const Button: React.FC<Props> = (props) => {
       size={size}
       disabled={disabled}
       styleVariants={styleVariants}
+      variants={upInOut}
+      // initial="hidden"
+      // animate="show"
+      // exit="out"
       whileHover={{
         scale: 1.05,
       }}

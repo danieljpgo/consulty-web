@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: grid;
   grid-gap: ${(props) => props.theme.unit * 2}rem;
   grid-template-columns: auto;
@@ -19,7 +20,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Brand = styled.div`
+export const Brand = styled(motion.div)`
   text-align: center;
   h2{
     font-weight: 500;
@@ -43,11 +44,11 @@ export const Brand = styled.div`
   } 
 `;
 
-export const Hero = styled.img`
+export const Hero = styled(motion.img)`
   width: 100%;
 `;
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled(motion.div)`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem ${(props) => props.theme.unit}rem;
   grid-template-columns: 1fr 1fr;
@@ -58,7 +59,7 @@ export const ButtonContainer = styled.div`
   } 
 `;
 
-export const Counter = styled.div`
+export const Counter = styled(motion.div)`
   font-size: 1rem;
   grid-column: span 2;
   display: flex;
