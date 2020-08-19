@@ -4,7 +4,7 @@ import { Container, Content } from './styles';
 import Filter, { Filter as FilterValues } from './Filter';
 import List from './List';
 import api from '../../common/services/api';
-import { stagger, upInOut } from '../../common/utils/animations';
+import { stagger } from '../../common/utils/animations';
 
 export interface Teacher {
   avatar: string,
@@ -44,7 +44,7 @@ const Teachers: React.FC = () => {
       animate="show"
       exit="out"
     >
-      <motion.h1 variants={upInOut}>
+      <motion.h1>
         Estes são os
         <br />
         proffys disponíveis.

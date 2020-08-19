@@ -4,9 +4,15 @@ import { motion } from 'framer-motion';
 import { Container, Content, Brand } from './styles';
 import backImg from '../../../assets/icons/back.svg';
 import logo from '../../../assets/images/logo.svg';
+import { fadeInOut } from '../../../utils/animations';
 
 const Header: React.FC = () => (
-  <Container>
+  <Container
+    variants={fadeInOut}
+    initial="hidden"
+    animate="show"
+    exit="out"
+  >
     <Content>
       <motion.div
         whileHover={{

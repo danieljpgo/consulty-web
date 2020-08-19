@@ -27,7 +27,6 @@ export const upInOut = {
     opacity: 0,
     scale: 0.85,
     y: -20,
-    x: -10,
     transition: {
       duration: 0.2,
       ease: 'easeIn',
@@ -47,7 +46,6 @@ export const upInOut = {
     opacity: 0,
     scale: 0.85,
     y: -20,
-    x: -10,
     transition: {
       duration: 0.2,
       ease: 'easeOut',

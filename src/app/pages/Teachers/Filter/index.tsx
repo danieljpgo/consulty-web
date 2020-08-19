@@ -8,7 +8,6 @@ import SelectField from '../../../common/components/SelectField';
 import { days, subject } from '../../../common/utils/constants';
 import Button from '../../../common/components/Button';
 import { errorRequired } from '../../../common/utils/errors';
-import { upInOut } from '../../../common/utils/animations';
 
 export interface Filter {
   subject: string,
@@ -50,7 +49,7 @@ const Filter: React.FC<Props> = (props) => {
     >
       {({ handleSubmit, isValid }) => (
         <Container onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-          <motion.div variants={upInOut}>
+          <motion.div>
             <Field
               id="subject"
               name="subject"
@@ -60,7 +59,7 @@ const Filter: React.FC<Props> = (props) => {
               as={SelectField}
             />
           </motion.div>
-          <motion.div variants={upInOut}>
+          <motion.div>
             <Field
               id="daysOfWeek"
               name="daysOfWeek"
@@ -70,7 +69,7 @@ const Filter: React.FC<Props> = (props) => {
               as={SelectField}
             />
           </motion.div>
-          <motion.div variants={upInOut}>
+          <motion.div>
             <Field
               id="time"
               name="time"

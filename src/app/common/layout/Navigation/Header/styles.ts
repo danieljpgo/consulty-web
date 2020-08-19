@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.header`
+export const Container = styled(motion.header)`
   height: 3rem;
   display: flex;
 `;
@@ -15,6 +16,7 @@ export const Content = styled.div`
   justify-content: space-between;
   a{
     display: flex;
+    padding: 10px 0;
     img{
       height: 1.25rem;
     }
