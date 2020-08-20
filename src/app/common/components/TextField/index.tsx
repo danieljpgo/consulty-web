@@ -42,7 +42,7 @@ const TextField: React.FC<Props> = (props) => {
   );
 
   return (
-    <Container>
+    <Container constrast={constrast}>
       {label && <TextLabel />}
       <Input {...inputProps} />
       {error && <ErrorLabel />}

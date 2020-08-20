@@ -20,7 +20,6 @@ const Button: React.FC<Props> = (props) => {
     type,
     disabled,
     onClick,
-    // ...buttonProps
   } = props;
 
   return (
@@ -30,14 +29,14 @@ const Button: React.FC<Props> = (props) => {
       disabled={disabled}
       styleVariants={styleVariants}
       variants={upInOut}
-      // initial="hidden"
-      // animate="show"
-      // exit="out"
+      initial="hidden"
+      animate="show"
+      exit="out"
       whileHover={{
         scale: 1.05,
       }}
       whileTap={{
-        scale: 1,
+        scale: 0.95,
       }}
       onClick={onClick}
     >

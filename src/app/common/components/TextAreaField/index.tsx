@@ -42,7 +42,7 @@ const TextAreaField: React.FC<Props> = (props) => {
   );
 
   return (
-    <Container>
+    <Container constrast={constrast}>
       {label && <TextLabel />}
       <TextArea {...inputProps} />
       {error && <ErrorLabel />}

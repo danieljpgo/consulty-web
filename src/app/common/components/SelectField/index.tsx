@@ -50,7 +50,7 @@ const SelectField: React.FC<Props> = (props) => {
   );
 
   return (
-    <Container>
+    <Container constrast={constrast}>
       {label && <TextLabel />}
       <Select {...selectProps}>
         {options.map((option) => (

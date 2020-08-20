@@ -1,9 +1,23 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface Props {
+  constrast?: boolean,
+}
+
+export const Container = styled.div<Props>`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 4}rem;
   grid-template-rows: auto max-content;
+  
+  :focus-within{
+    label:first-child{
+      color: ${(props) => !props.constrast && props.theme.colors.primary.main};
+      font-weight: 700;
+    }
+    input{
+      border: solid 2px ${(props) => props.theme.colors.primary.main};
+    }
+  }
 `;
 
 export const Input = styled.input`

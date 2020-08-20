@@ -7,33 +7,16 @@ export const Content = styled.main`
   max-width: 700px;
   margin: 0 auto;
   z-index: 2;
-  
-  /* ::before{
-    content: '';
-    height: 17.5rem;
-    width: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background-color: ${(props) => props.theme.colors.primary.main};
-    z-index: -1;
-
-    @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
-      height: 15.5rem;
-    }
-  } */
+  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    height: 15.5rem;
+  }
 `;
 
 export const Panel = styled(motion.div)`
-  /* height: 17.5rem; */
   width: 100%;
   left: 0;
   top: 0;
   position: absolute;
   background-color: ${(props) => props.theme.colors.primary.main};
   z-index: -1;
-
-  /* @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
-    height: 15.5rem;
-  } */
 `;

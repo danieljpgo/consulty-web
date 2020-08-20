@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { useMediaQuery } from '@react-hook/media-query';
+import Theme from '../../../styles/themes/light';
 import { Content, Panel } from './styles';
 import Header from './Header';
 
@@ -8,6 +10,7 @@ interface Props {
 
 const Navigation: React.FC<Props> = (props) => {
   const { children } = props;
+  const isDesktop = useMediaQuery(`(min-width: ${Theme.breakpoints.small}px)`);
 
   return (
     <Fragment>
@@ -20,7 +23,7 @@ const Navigation: React.FC<Props> = (props) => {
           height: '100vh',
         }}
         animate={{
-          height: '15.5rem',
+          height: isDesktop ? '15.5rem' : '17.5rem',
           transition: {
             duration: 0.2,
             type: 'spring',
