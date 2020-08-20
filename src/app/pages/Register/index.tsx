@@ -2,20 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container, Content } from './styles';
 import Form from './Form';
-import { fadeInOut } from '../../common/utils/animations';
+import { stagger, upInOut } from '../../common/utils/animations';
 
 const Register: React.FC = () => (
   <Container
-    variants={fadeInOut}
+    variants={stagger}
     initial="hidden"
     animate="show"
     exit="out"
   >
     <Content>
-      <motion.h1>
+      <motion.h1 variants={upInOut}>
         Que incrível que você quer dar aulas.
       </motion.h1>
-      <motion.span>
+      <motion.span variants={upInOut}>
         O primeiro passo, é preencher esse formulário de inscrição.
       </motion.span>
     </Content>

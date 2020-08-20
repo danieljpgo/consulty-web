@@ -7,7 +7,10 @@ import {
 } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { Container, Content, InputsContainer } from './styles';
+import { AnimatePresence } from 'framer-motion';
+import {
+  Container, Content, InputsContainer, ListInputs,
+} from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
@@ -17,6 +20,7 @@ import warningIcon from '../../../common/assets/icons/warning.svg';
 import { days, subject as subjectItems } from '../../../common/utils/constants';
 import { errorRequired, brazilianCellRegex, nameRegex } from '../../../common/utils/errors';
 import api from '../../../common/services/api';
+import { stagger } from '../../../common/utils/animations';
 
 interface Schedule {
   daysOfWeek: '-1' | '0' | '1' | '2' | '3' | '4' | '5' | '6',
@@ -140,6 +144,9 @@ const Form: React.FC = () => {
         values, errors, touched, handleSubmit,
       }) => (
           <Container
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.1 } }}
             onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
           >
             <Content>
@@ -203,51 +210,77 @@ const Form: React.FC = () => {
                   <Fieldset
                     title="Horários disponíveis"
                     action="Novo horário"
+                    disabled={values.schedules.length === 7}
                     onAddSchedule={() => push(initialValues.schedules[0])}
                   >
-                    {values.schedules.map((schedule, index) => (
-                      <InputsContainer key={index.toString()}>
-                        <Field
-                          id={`schedules.${index}.daysOfWeek`}
-                          name={`schedules.${index}.daysOfWeek`}
-                          label="Dia da semana"
-                          options={days}
-                          error={
-                            touched.schedules
-                            && touched.schedules[index]?.daysOfWeek
-                            && errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek
-                          }
-                          as={SelectField}
-                        />
-                        <Field
-                          id={`schedules.${index}.from`}
-                          name={`schedules.${index}.from`}
-                          type="time"
-                          label="Das"
-                          error={
-                            touched.schedules
-                            && touched.schedules[index]?.from
-                            && errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.from
-                          }
-                          as={TextField}
-                        />
-                        <Field
-                          id={`schedules.${index}.to`}
-                          name={`schedules.${index}.to`}
-                          type="time"
-                          label="Até"
-                          error={
-                            touched.schedules
-                            && touched.schedules[index]?.to
-                            && errors.schedules
-                            && (errors.schedules as FormikErrors<Schedule[]>)[index]?.to
-                          }
-                          as={TextField}
-                        />
-                      </InputsContainer>
-                    ))}
+                    <ListInputs
+                      variants={stagger}
+                      initial="hidden"
+                      animate="show"
+                      exit="out"
+                    >
+                      {values.schedules.map((schedule, index) => (
+                        <AnimatePresence key={index.toString()}>
+                          <InputsContainer
+                            initial={{
+                              opacity: 0,
+                              y: -20,
+                              scale: 0.85,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              y: 0,
+                              scale: 1,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              y: -20,
+                              scale: 0.85,
+                            }}
+                          >
+                            <Field
+                              id={`schedules.${index}.daysOfWeek`}
+                              name={`schedules.${index}.daysOfWeek`}
+                              label="Dia da semana"
+                              options={days}
+                              error={
+                                touched.schedules
+                                && touched.schedules[index]?.daysOfWeek
+                                && errors.schedules
+                                && (errors.schedules as FormikErrors<Schedule[]>)[index]?.daysOfWeek
+                              }
+                              as={SelectField}
+                            />
+                            <Field
+                              id={`schedules.${index}.from`}
+                              name={`schedules.${index}.from`}
+                              type="time"
+                              label="Das"
+                              error={
+                                touched.schedules
+                                && touched.schedules[index]?.from
+                                && errors.schedules
+                                && (errors.schedules as FormikErrors<Schedule[]>)[index]?.from
+                              }
+                              as={TextField}
+                            />
+                            <Field
+                              id={`schedules.${index}.to`}
+                              name={`schedules.${index}.to`}
+                              type="time"
+                              label="Até"
+                              error={
+                                touched.schedules
+                                && touched.schedules[index]?.to
+                                && errors.schedules
+                                && (errors.schedules as FormikErrors<Schedule[]>)[index]?.to
+                              }
+                              as={TextField}
+                            />
+                          </InputsContainer>
+                        </AnimatePresence>
+                      ))}
+                    </ListInputs>
                   </Fieldset>
                 )}
               </FieldArray>

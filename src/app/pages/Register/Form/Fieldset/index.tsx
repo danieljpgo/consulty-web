@@ -5,6 +5,7 @@ interface Props {
   title: string,
   children: React.ReactNode,
   action?: string,
+  disabled?: boolean,
   onAddSchedule?: () => void,
 }
 
@@ -18,6 +19,7 @@ const Fieldset: React.FC<Props> = (props) => {
     title,
     action,
     children,
+    disabled,
     onAddSchedule,
   } = props;
 
@@ -29,6 +31,7 @@ const Fieldset: React.FC<Props> = (props) => {
           {action && (
             <button
               type="button"
+              disabled={disabled}
               onClick={onAddSchedule}
             >
               <span>+</span>

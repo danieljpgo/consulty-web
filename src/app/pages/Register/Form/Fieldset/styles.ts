@@ -29,6 +29,9 @@ export const Content = styled.div`
       :hover{
         color: ${(props) => props.theme.colors.primary.darker};
       }
+      :disabled{
+        pointer-events: none;
+      }
     }
   }
 `;

@@ -28,6 +28,7 @@ export const Select = styled.select`
   background-color: ${(props) => props.theme.colors.surface.input};
   border: 1px solid ${(props) => props.theme.colors.lines.constrast};
   font: 1rem Archivo;
+  transition: border 0.1s ease-out;
 `;
 
 export const Option = styled.option`

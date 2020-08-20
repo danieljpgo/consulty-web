@@ -27,7 +27,7 @@ export const Container = styled(motion.div)`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
 

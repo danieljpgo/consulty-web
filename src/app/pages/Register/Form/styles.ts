@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.form`
+export const Container = styled(motion.form)`
   display: grid;
   border-radius: ${(props) => props.theme.shapes.borderRadius}rem;
   background-color: ${(props) => props.theme.colors.surface.base};
@@ -53,7 +54,12 @@ export const Content = styled.div`
   }
 `;
 
-export const InputsContainer = styled.div`
+export const ListInputs = styled(motion.div)`
+  display: grid;
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
+`;
+
+export const InputsContainer = styled(motion.div)`
   display: grid;
   grid-gap: ${(props) => props.theme.unit / 2}rem;
   grid-template-columns: 1fr fr;

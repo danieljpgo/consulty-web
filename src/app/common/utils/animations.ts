@@ -47,7 +47,7 @@ export const upInOut = {
     scale: 0.85,
     y: -20,
     transition: {
-      duration: 0.2,
+      duration: 0.1,
       ease: 'easeOut',
     },
   },
