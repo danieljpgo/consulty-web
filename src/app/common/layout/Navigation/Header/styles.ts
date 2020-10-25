@@ -17,15 +17,15 @@ export const Content = styled.div`
   a{
     display: flex;
     padding: 10px 0;
-    img{
+    svg{
       height: 1.25rem;
+      stroke: ${(props) => props.theme.colors.text.constrast};
     }
   }
 `;
 
-export const Brand = styled.div`
-  img{
-    height: 1rem;
-    display: flex;
-  }
+export const Brand = styled.h3`
+  font-family: Poppins;
+  color: ${(props) => props.theme.colors.text.constrast};
+  line-height: 1;
 `;

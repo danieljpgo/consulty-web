@@ -13,7 +13,6 @@ export const Container = styled(motion.div)`
   width: 90vw;
   color: ${(props) => props.theme.colors.text.constrast};
   grid-gap: ${(props) => props.theme.unit / 2}rem;
-
   @media (min-width: ${(props) => props.theme.breakpoints.xsmall}px) {
     grid-gap: ${(props) => props.theme.unit}rem;
   }
@@ -26,26 +25,29 @@ export const Container = styled(motion.div)`
 
 export const Brand = styled(motion.div)`
   text-align: center;
+  h1{
+    font-size: 2.8rem;
+    font-family: Poppins;
+    line-height: 1;
+    color: ${(props) => props.theme.colors.text.constrast};
+  }
   h2{
     font-weight: 500;
     font-size: 1.4rem;
     font-family: Poppins;
     color: ${(props) => props.theme.colors.title.base};
   }
-  img{
-    height: 3rem;
-  }
   @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     text-align: start;
     padding-top: ${(props) => props.theme.unit * 2.8}rem;
     display: grid;
     gap: ${(props) => props.theme.unit}rem;
+    h1{
+      font-size: 4.3rem;
+    }
     h2{
       font-size: 1.8rem;
       max-width: 480px;
-    }
-    img{
-      height: 5rem;
     }
   } 
 `;

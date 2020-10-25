@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import classIcon from '../../common/assets/icons/give-classes.svg';
 import { stagger, upInOut } from '../../common/utils/animations';
+import classIcon from '../../common/assets/icons/give-classes.svg';
 import landing from '../../common/assets/images/landing.svg';
 import studyIcon from '../../common/assets/icons/study.svg';
-import logo from '../../common/assets/images/logo.svg';
 import Button from '../../common/components/Button';
 import api from '../../common/services/api';
 import {
@@ -44,11 +43,7 @@ const Landing: React.FC = () => {
       exit="out"
     >
       <Brand>
-        <motion.img
-          src={logo}
-          variants={upInOut}
-          alt="Plataforma de estudos"
-        />
+        <motion.h1 variants={upInOut}>Consulty</motion.h1>
         <motion.h2 variants={upInOut}>Sua plataforma de estudos online.</motion.h2>
       </Brand>
       <Hero
