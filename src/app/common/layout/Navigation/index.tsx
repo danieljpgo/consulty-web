@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { useMediaQuery } from '@react-hook/media-query';
 import Theme from '../../../styles/themes/light';
-import { Content, Panel } from './styles';
+import { Panel } from '../../components/Panel';
+import { Content } from './styles';
 import Header from './Header';
 
 interface Props {

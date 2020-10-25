@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from '@react-hook/media-query';
 import Theme from '../../../styles/themes/light';
-import { Panel } from './styles';
+import { Panel } from '../../components/Panel';
 
 interface Props {
   children: React.ReactNode
@@ -19,7 +19,7 @@ const Home: React.FC<Props> = (props) => {
           height: '100vh',
         }}
         animate={{
-          height: isDesktop ? ' 46.7vh' : '54vh',
+          height: isDesktop ? ' 47.5vh' : '48vh',
           transition: {
             duration: 0.2,
             type: 'spring',

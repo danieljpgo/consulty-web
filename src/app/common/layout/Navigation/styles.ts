@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 export const Content = styled.main`
   width: calc(100vw - ${(props) => props.theme.unit * 2}rem);
@@ -10,13 +9,4 @@ export const Content = styled.main`
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     height: 15.5rem;
   }
-`;
-
-export const Panel = styled(motion.div)`
-  width: 100%;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background-color: ${(props) => props.theme.colors.primary.main};
-  z-index: -1;
 `;

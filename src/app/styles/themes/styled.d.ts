@@ -43,6 +43,7 @@ interface Shapes {
 
 interface Breakpoints {
   small: number,
+  xsmall: number,
 }
 
 declare module 'styled-components' {

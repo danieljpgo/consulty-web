@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit * 2}rem;
   grid-template-columns: auto;
   grid-template-rows: min-content min-content min-content;
   align-items: center;
@@ -13,10 +12,15 @@ export const Container = styled(motion.div)`
   height: 100vh;
   width: 90vw;
   color: ${(props) => props.theme.colors.text.constrast};
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
 
+  @media (min-width: ${(props) => props.theme.breakpoints.xsmall}px) {
+    grid-gap: ${(props) => props.theme.unit}rem;
+  }
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     grid-template-columns: auto auto;
     grid-template-rows: min-content min-content;
+    grid-gap: ${(props) => props.theme.unit * 2}rem;
   }
 `;
 
@@ -31,50 +35,71 @@ export const Brand = styled(motion.div)`
   img{
     height: 3rem;
   }
-  
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
     text-align: start;
+    padding-top: ${(props) => props.theme.unit * 2.8}rem;
+    display: grid;
+    gap: ${(props) => props.theme.unit}rem;
     h2{
-      font-size: 2.1rem;
-      max-width: 500px;
+      font-size: 1.8rem;
+      max-width: 480px;
     }
     img{
-      height: 8rem;
+      height: 5rem;
     }
   } 
 `;
 
 export const Hero = styled(motion.img)`
   width: 100%;
-  max-width: 688px;
+  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    max-width: 35vw;
+  }
 `;
 
-export const ButtonContainer = styled(motion.div)`
+export const Footer = styled(motion.div)`
   display: grid;
-  grid-gap: ${(props) => props.theme.unit / 2}rem ${(props) => props.theme.unit}rem;
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-areas:
+        "welcome welcome"
+        ". ."
+        "counter counter";
+  grid-gap: ${(props) => props.theme.unit / 2}rem;
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    grid-gap: ${(props) => props.theme.unit}rem;
+    grid-template-areas: "welcome counter . .";
     grid-column: span 2;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  } 
+  }
+`;
+
+export const Welcome = styled(motion.div)`
+  grid-area: welcome;
+  color: ${(props) => props.theme.colors.title.base};
+  align-self: center;
+  line-height: 1.2;
+  text-align: center;
+  p {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    text-align: start;
+  }
 `;
 
 export const Counter = styled(motion.div)`
+  grid-area: counter;
   font-size: 1rem;
-  grid-column: span 2;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: ${(props) => props.theme.colors.title.base};
-  span{
-    img{
-      margin-left: 0.25rem;
-    }
-  }
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    max-width: 170px;
+    text-align: end;
+    justify-self: flex-end;
     font-size: 0.8rem;
-    justify-content: flex-end;
   } 
 `;

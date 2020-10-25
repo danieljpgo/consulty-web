@@ -50,5 +50,6 @@ export default {
 
   breakpoints: {
     small: 700,
+    xsmall: 321,
   },
 };

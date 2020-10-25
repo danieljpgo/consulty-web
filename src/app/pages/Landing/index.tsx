@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import classIcon from '../../common/assets/icons/give-classes.svg';
+import { stagger, upInOut } from '../../common/utils/animations';
+import landing from '../../common/assets/images/landing.svg';
+import studyIcon from '../../common/assets/icons/study.svg';
+import logo from '../../common/assets/images/logo.svg';
+import Button from '../../common/components/Button';
+import api from '../../common/services/api';
 import {
   Container,
   Brand,
   Hero,
-  ButtonContainer,
+  Footer,
   Counter,
+  Welcome,
 } from './styles';
-import landing from '../../common/assets/images/landing.svg';
-import logo from '../../common/assets/images/logo.svg';
-import Button from '../../common/components/Button';
-import studyIcon from '../../common/assets/icons/study.svg';
-import classIcon from '../../common/assets/icons/give-classes.svg';
-import purpleHeart from '../../common/assets/icons/purple-heart.svg';
-import api from '../../common/services/api';
-import { stagger, upInOut } from '../../common/utils/animations';
 
 const Landing: React.FC = () => {
   const [totalConnection, setTotalConnection] = useState(0);
@@ -51,14 +51,19 @@ const Landing: React.FC = () => {
         />
         <motion.h2 variants={upInOut}>Sua plataforma de estudos online.</motion.h2>
       </Brand>
-
       <Hero
         src={landing}
         variants={upInOut}
         alt="Plataforma de estudos"
       />
-
-      <ButtonContainer>
+      <Footer>
+        <Welcome>
+          <p>Seja bem-vindo.</p>
+          <h2>O que deseja fazer?</h2>
+        </Welcome>
+        <Counter>
+          {labelConnection}
+        </Counter>
         <Button
           type="button"
           alt="Estudar"
@@ -79,16 +84,7 @@ const Landing: React.FC = () => {
         >
           Dar aula
         </Button>
-        <Counter>
-          <span>
-            {labelConnection}
-            <img
-              src={purpleHeart}
-              alt="Coração roxo"
-            />
-          </span>
-        </Counter>
-      </ButtonContainer>
+      </Footer>
     </Container>
   );
 };
