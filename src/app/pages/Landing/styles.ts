@@ -17,7 +17,7 @@ export const Container = styled(motion.div)`
   @media (min-width: ${(props) => props.theme.breakpoints.xsmall}px) {
     grid-gap: ${(props) => props.theme.unit}rem;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     grid-template-columns: auto auto;
     grid-template-rows: min-content min-content;
     grid-gap: ${(props) => props.theme.unit * 2}rem;
@@ -35,7 +35,7 @@ export const Brand = styled(motion.div)`
   img{
     height: 3rem;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     text-align: start;
     padding-top: ${(props) => props.theme.unit * 2.8}rem;
     display: grid;
@@ -52,7 +52,7 @@ export const Brand = styled(motion.div)`
 
 export const Hero = styled(motion.img)`
   width: 100%;
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     max-width: 35vw;
   }
 `;
@@ -65,6 +65,9 @@ export const Footer = styled(motion.div)`
         "counter counter";
   grid-gap: ${(props) => props.theme.unit / 2}rem;
   @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+    grid-gap: ${(props) => props.theme.unit}rem;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     grid-gap: ${(props) => props.theme.unit}rem;
     grid-template-areas: "welcome counter . .";
     grid-column: span 2;
@@ -83,7 +86,7 @@ export const Welcome = styled(motion.div)`
   h3 {
     font-size: 1.2rem;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     text-align: start;
   }
 `;
@@ -96,7 +99,7 @@ export const Counter = styled(motion.div)`
   justify-content: center;
   text-align: center;
   color: ${(props) => props.theme.colors.title.base};
-  @media (min-width: ${(props) => props.theme.breakpoints.small}px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}px) {
     max-width: 170px;
     text-align: end;
     justify-self: flex-end;

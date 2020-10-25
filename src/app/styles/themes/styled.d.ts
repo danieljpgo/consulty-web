@@ -42,6 +42,10 @@ interface Shapes {
 }
 
 interface Breakpoints {
+  xllarge: number,
+  xlarge: number,
+  large: number,
+  medium: number,
   small: number,
   xsmall: number,
 }

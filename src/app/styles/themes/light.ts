@@ -49,7 +49,11 @@ export default {
   },
 
   breakpoints: {
-    small: 700,
+    xllarge: 1441,
+    xlarge: 1281,
+    large: 1025,
+    medium: 769,
+    small: 641,
     xsmall: 321,
   },
 };

@@ -9,7 +9,7 @@ interface Props {
 
 const Home: React.FC<Props> = (props) => {
   const { children } = props;
-  const isDesktop = useMediaQuery(`(min-width: ${Theme.breakpoints.small}px)`);
+  const isDesktop = useMediaQuery(`(min-width: ${Theme.breakpoints.xllarge}px)`);
 
   return (
     <React.Fragment>
@@ -19,7 +19,7 @@ const Home: React.FC<Props> = (props) => {
           height: '100vh',
         }}
         animate={{
-          height: isDesktop ? ' 47.5vh' : '48vh',
+          height: isDesktop ? '47.5vh' : '47vh',
           transition: {
             duration: 0.2,
             type: 'spring',
