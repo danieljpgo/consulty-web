@@ -46,6 +46,7 @@ export const Brand = styled(motion.div)`
 
 export const Hero = styled(motion.img)`
   width: 100%;
+  max-width: 688px;
 `;
 
 export const ButtonContainer = styled(motion.div)`

@@ -79,7 +79,6 @@ const Landing: React.FC = () => {
         >
           Dar aula
         </Button>
-
         <Counter>
           <span>
             {labelConnection}
@@ -95,11 +94,3 @@ const Landing: React.FC = () => {
 };
 
 export default Landing;
-// animate={{
-//   x: [0, 3, 7, 3, 7, 3, 0],
-// }}
-// exit={{ opacity: 0 }}
-// transition={{
-//   yoyo: Infinity,
-//   repeatDelay: 4,
-// }}

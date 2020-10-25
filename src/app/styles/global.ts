@@ -5,8 +5,8 @@ export default createGlobalStyle`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      outline: 0;
-      /* outline-color: green; */
+      /* outline: 0; */
+      outline-color: black;
     }
 
     #root{
