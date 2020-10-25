@@ -47,7 +47,7 @@ const Teachers: React.FC = () => {
       <motion.h1 variants={upInOut}>
         Estes são os
         <br />
-        proffys disponíveis.
+        consultores disponíveis.
       </motion.h1>
 
       <Content>
