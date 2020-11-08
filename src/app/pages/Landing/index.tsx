@@ -65,7 +65,7 @@ const Landing: React.FC = () => {
           icon={studyIcon}
           size="large"
           styleVariants="primary"
-          onClick={() => handleClick('/teachers')}
+          onClick={() => handleClick('/consultant')}
         >
           Estudar
         </Button>

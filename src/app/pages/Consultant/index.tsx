@@ -6,7 +6,7 @@ import List from './List';
 import api from '../../common/services/api';
 import { stagger, upInOut } from '../../common/utils/animations';
 
-export interface Teacher {
+export interface Consultant {
   avatar: string,
   bio: string,
   cost: number,
@@ -17,8 +17,8 @@ export interface Teacher {
   whatsapp: string,
 }
 
-const Teachers: React.FC = () => {
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
+const Consultants: React.FC = () => {
+  const [consultants, setConsultants] = useState<Consultant[]>([]);
 
   async function handleFilterSubmit(filter: FilterValues) {
     const params = {
@@ -29,7 +29,7 @@ const Teachers: React.FC = () => {
 
     const { data } = await api.get('classes', { params });
 
-    setTeachers(data);
+    setConsultants(data);
   }
 
   async function handleWhatsappClick(whatsapp: string, user_id: number) {
@@ -53,7 +53,7 @@ const Teachers: React.FC = () => {
       <Content>
         <Filter onSubmit={handleFilterSubmit} />
         <List
-          teachers={teachers}
+          consultants={consultants}
           onWhatsappClick={handleWhatsappClick}
         />
       </Content>
@@ -61,4 +61,4 @@ const Teachers: React.FC = () => {
   );
 };
 
-export default Teachers;
+export default Consultants;

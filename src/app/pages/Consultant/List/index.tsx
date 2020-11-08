@@ -1,30 +1,30 @@
 import React from 'react';
 import { Container, Alert } from './styles';
 import Item from './Item';
-import { Teacher } from '../index';
+import { Consultant } from '../index';
 
 interface Props {
-  teachers: Teacher[],
+  consultants: Consultant[],
   onWhatsappClick: (whatsapp: string, user_id: number) => void,
 }
 
 const defaultProps = {
-  teachers: [],
+  consultants: [],
 };
 
 const List: React.FC<Props> = (props) => {
-  const { teachers, onWhatsappClick } = props;
+  const { consultants, onWhatsappClick } = props;
 
   return (
     <Container>
-      {!teachers.length && (
+      {!consultants.length && (
         <Alert>
-          Nenhum professor encontrado
+          Nenhum consultor encontrado
           <br />
           com sua pesquisa
         </Alert>
       )}
-      {teachers.map((teacher) => (
+      {consultants.map((teacher) => (
         <Item
           key={teacher.id}
           name={teacher.name}
