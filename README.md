@@ -1,13 +1,16 @@
-<div align="center" >
+<h4 align="center" >
  &nbsp;&nbsp; <img
     alt="checklist"
     title="checklist"
     src=".github/logo.png"
     height="140px"
     />
-</div>
+    <div>
+      Consulty
+    </div>
+</h4>
 
-<h1 align="left">Consulty</h1>
+<h1 align="left">Consulty Web</h1>
 
 <p align="left">
    <a href="https://github.com/danieljpgo">
@@ -40,6 +43,7 @@
 <div align="center">
    <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#integrations">Integrations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#license">License</a>
@@ -58,6 +62,11 @@ TODO
 
 ## Features
 TODO
+
+## Integrations
+This project is part of the **Consulty** system, the other projects are located at:
+- [Consulty Api](https://github.com/danieljpgo/consulty-api)
+- [Consulty App](https://github.com/danieljpgo/consulty-app)
 
 ## Technologies
 The main technologies used to develop the project were:
