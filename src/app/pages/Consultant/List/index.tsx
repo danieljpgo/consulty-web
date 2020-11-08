@@ -24,16 +24,16 @@ const List: React.FC<Props> = (props) => {
           com sua pesquisa
         </Alert>
       )}
-      {consultants.map((teacher) => (
+      {consultants.map((consultant) => (
         <Item
-          key={teacher.id}
-          name={teacher.name}
-          subject={teacher.subject}
-          bio={teacher.bio}
-          avatar={teacher.avatar}
-          whatsapp={teacher.whatsapp}
-          cost={teacher.cost}
-          user_id={teacher.user_id}
+          key={consultant.id}
+          name={consultant.name}
+          subject={consultant.subject}
+          bio={consultant.bio}
+          avatar={consultant.avatar}
+          whatsapp={consultant.whatsapp}
+          cost={consultant.cost}
+          user_id={consultant.user_id}
           onWhatsappClick={onWhatsappClick}
         />
       ))}
