@@ -3,10 +3,9 @@
     alt="checklist"
     title="checklist"
     src=".github/logo.png"
-    height="150px"
+    height="140px"
     />
 </div>
-&nbsp;
 
 <h1 align="left">Consulty</h1>
 
