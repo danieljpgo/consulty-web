@@ -1,4 +1,4 @@
-<h4 align="center" >
+<h3 align="center" >
  &nbsp;&nbsp; <img
     alt="checklist"
     title="checklist"
@@ -8,7 +8,7 @@
     <div>
       Consulty
     </div>
-</h4>
+</h3>
 
 <h1 align="left">Consulty Web</h1>
 
