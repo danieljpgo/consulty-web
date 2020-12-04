@@ -29,7 +29,7 @@ const initialValues: Filter = {
 const validationSchema = yup.object({
   subject: yup
     .string()
-    .required(errorRequired('matéria')),
+    .required(errorRequired('tema')),
   daysOfWeek: yup
     .string()
     .oneOf(['0', '1', '2', '3', '4', '5', '6'], 'selecione uma data valida.')
@@ -54,7 +54,7 @@ const Filter: React.FC<Props> = (props) => {
             <Field
               id="subject"
               name="subject"
-              label="Matérias"
+              label="Temas"
               options={subject}
               constrast
               as={SelectField}

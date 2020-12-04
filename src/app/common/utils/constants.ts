@@ -1,5 +1,5 @@
 export const subject = [
-  { label: 'Selecione uma matéria', value: '' },
+  { label: 'Selecione um tema', value: '' },
   { label: 'Artes', value: 'Artes' },
   { label: 'Ciências', value: 'Ciências' },
   { label: 'Matemática', value: 'Matemática' },

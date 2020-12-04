@@ -75,7 +75,7 @@ const validationSchema = yup.object({
     .required(errorRequired('biografia')),
   subject: yup
     .string()
-    .required(errorRequired('matéria')),
+    .required(errorRequired('tema')),
   cost: yup
     .number()
     .positive('apenas valores positivos.')
@@ -100,10 +100,10 @@ const validationSchema = yup.object({
     })),
 });
 
-const Form: React.FC = () => {
+const Form = () => {
   const history = useHistory();
 
-  function handleFormSubmit(values: FormProps) {
+  async function handleFormSubmit(values: FormProps) {
     const {
       name,
       avatar,
@@ -128,10 +128,14 @@ const Form: React.FC = () => {
       })),
     };
 
-    api
-      .post('classes', body)
-      .then(() => history.push('/'))
-      .catch(console.log);
+    try {
+      await api
+        .post('classes', body)
+        .then(() => history.push('/'));
+    } catch (e) {
+      // @TODO add toaster for error display
+      console.log(e);
+    }
   }
 
   return (
@@ -190,7 +194,7 @@ const Form: React.FC = () => {
                 <Field
                   id="subject"
                   name="subject"
-                  label="Matéria"
+                  label="Tema"
                   options={subjectItems}
                   error={touched.subject && errors.subject}
                   as={SelectField}
