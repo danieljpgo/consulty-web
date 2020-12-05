@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Container, Content, Brand } from './styles';
 import { fadeInOut } from '../../../utils/animations';
 
-const Header: React.FC = () => (
+const Header = () => (
   <Container
     variants={fadeInOut}
     initial="hidden"
@@ -13,12 +13,8 @@ const Header: React.FC = () => (
   >
     <Content>
       <motion.div
-        whileHover={{
-          x: 20,
-        }}
-        whileTap={{
-          x: 0,
-        }}
+        whileHover={{ x: 20 }}
+        whileTap={{ x: 0 }}
       >
         <Link to="/">
           <svg

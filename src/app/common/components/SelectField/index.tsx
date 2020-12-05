@@ -1,6 +1,6 @@
 import React, { SelectHTMLAttributes } from 'react';
-import { Container, Select, Option } from './styles';
 import Label from '../Label';
+import { Container, Select, Option } from './styles';
 
 interface Option {
   label: string,
@@ -15,18 +15,13 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Option[]
 }
 
-const defaultProps = {
-  constrast: false,
-  options: [],
-};
-
-const SelectField: React.FC<Props> = (props) => {
+const SelectField = (props: Props) => {
   const {
     label,
     hint,
-    options,
-    constrast,
     error,
+    options = [],
+    constrast = false,
     ...selectProps
   } = props;
 
@@ -52,6 +47,7 @@ const SelectField: React.FC<Props> = (props) => {
   return (
     <Container constrast={constrast}>
       {label && <TextLabel />}
+
       <Select {...selectProps}>
         {options.map((option) => (
           <Option
@@ -62,11 +58,10 @@ const SelectField: React.FC<Props> = (props) => {
           </Option>
         ))}
       </Select>
+
       {error && <ErrorLabel />}
     </Container>
   );
 };
-
-SelectField.defaultProps = defaultProps;
 
 export default SelectField;

@@ -1,24 +1,23 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import { Container } from './styles';
 import { upInOut } from '../../utils/animations';
+import { Container } from './styles';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode,
-  icon?: string,
-  alt?: string,
   size: 'small' | 'large',
   styleVariants: 'primary' | 'secundary'
+  alt?: string,
+  icon?: string,
 }
 
-const Button: React.FC<Props> = (props) => {
+const Button = (props: Props) => {
   const {
-    children,
     icon,
-    alt,
-    size,
-    styleVariants,
-    type,
-    disabled,
+    children,
+    alt = 'icon',
+    size = 'large',
+    type = 'button',
+    disabled = false,
+    styleVariants = 'primary',
     onClick,
   } = props;
 
@@ -40,20 +39,10 @@ const Button: React.FC<Props> = (props) => {
       }}
       onClick={onClick}
     >
-      {icon && (
-        <img alt={alt} src={icon} />
-      )}
+      {icon && (<img alt={alt} src={icon} />)}
       <span>{children}</span>
     </Container>
   );
-};
-
-Button.defaultProps = {
-  type: 'button',
-  alt: 'icon',
-  size: 'large',
-  styleVariants: 'primary',
-  onClick: () => { },
 };
 
 export default Button;

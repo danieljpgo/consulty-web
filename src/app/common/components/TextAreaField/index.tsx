@@ -1,6 +1,6 @@
 import React, { TextareaHTMLAttributes } from 'react';
-import { Container, TextArea } from './styles';
 import Label from '../Label';
+import { Container, TextArea } from './styles';
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string,
@@ -9,16 +9,12 @@ interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: string,
 }
 
-const defaultProps = {
-  constrast: false,
-};
-
-const TextAreaField: React.FC<Props> = (props) => {
+const TextAreaField = (props: Props) => {
   const {
     label,
     hint,
-    constrast,
     error,
+    constrast = false,
     ...inputProps
   } = props;
 
@@ -44,12 +40,12 @@ const TextAreaField: React.FC<Props> = (props) => {
   return (
     <Container constrast={constrast}>
       {label && <TextLabel />}
+
       <TextArea {...inputProps} />
+
       {error && <ErrorLabel />}
     </Container>
   );
 };
-
-TextAreaField.defaultProps = defaultProps;
 
 export default TextAreaField;

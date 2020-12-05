@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
-import { Container, Input } from './styles';
 import Label from '../Label';
+import { Container, Input } from './styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string,
@@ -9,16 +9,12 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: string,
 }
 
-const defaultProps = {
-  constrast: false,
-};
-
-const TextField: React.FC<Props> = (props) => {
+const TextField = (props: Props) => {
   const {
     label,
     hint,
-    constrast,
     error,
+    constrast = false,
     ...inputProps
   } = props;
 
@@ -44,12 +40,12 @@ const TextField: React.FC<Props> = (props) => {
   return (
     <Container constrast={constrast}>
       {label && <TextLabel />}
+
       <Input {...inputProps} />
+
       {error && <ErrorLabel />}
     </Container>
   );
 };
-
-TextField.defaultProps = defaultProps;
 
 export default TextField;

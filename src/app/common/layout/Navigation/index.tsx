@@ -1,20 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useMediaQuery } from '@react-hook/media-query';
 import Theme from '../../../styles/themes/light';
 import { Panel } from '../../components/Panel';
+import { Children } from '../../types/children';
 import { Content } from './styles';
 import Header from './Header';
 
-interface Props {
-  children: React.ReactNode
-}
+interface Props extends Children { }
 
-const Navigation: React.FC<Props> = (props) => {
+const Navigation = (props: Props) => {
   const { children } = props;
   const isDesktop = useMediaQuery(`(min-width: ${Theme.breakpoints.small}px)`);
 
   return (
-    <Fragment>
+    <>
       <Header />
       <Content>
         {children}
@@ -37,7 +36,7 @@ const Navigation: React.FC<Props> = (props) => {
           },
         }}
       />
-    </Fragment>
+    </>
   );
 };
 

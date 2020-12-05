@@ -1,18 +1,17 @@
 import React from 'react';
 import { useMediaQuery } from '@react-hook/media-query';
-import Theme from '../../../styles/themes/light';
 import { Panel } from '../../components/Panel';
+import { Children } from '../../types/children';
+import Theme from '../../../styles/themes/light';
 
-interface Props {
-  children: React.ReactNode
-}
+interface Props extends Children { }
 
-const Home: React.FC<Props> = (props) => {
+const Home = (props: Props) => {
   const { children } = props;
   const isDesktop = useMediaQuery(`(min-width: ${Theme.breakpoints.xllarge}px)`);
 
   return (
-    <React.Fragment>
+    <>
       {children}
       <Panel
         initial={{
@@ -32,7 +31,7 @@ const Home: React.FC<Props> = (props) => {
           },
         }}
       />
-    </React.Fragment>
+    </>
   );
 };
 

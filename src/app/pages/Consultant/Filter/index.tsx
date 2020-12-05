@@ -39,7 +39,7 @@ const validationSchema = yup.object({
     .required(errorRequired('time')),
 });
 
-const Filter: React.FC<Props> = (props) => {
+const Filter = (props: Props) => {
   const { onSubmit } = props;
 
   return (
