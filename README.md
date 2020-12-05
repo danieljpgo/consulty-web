@@ -79,6 +79,7 @@ The main technologies used to develop the project were:
 - [Styled Component](https://styled-components.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Formik](https://formik.org/docs/overview)
+- [Yup](https://github.com/jquense/yup/)
 - [Typescript](https://www.typescriptlang.org/)
 
 This project was bootstrapped with:
