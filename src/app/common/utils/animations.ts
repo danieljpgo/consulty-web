@@ -22,6 +22,29 @@ export const fadeInOut = {
   },
 };
 
+export const fadeInUp = {
+  hidden: {
+    y: 60,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+  out: {
+    y: -60,
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
 export const upInOut = {
   hidden: {
     opacity: 0,
@@ -49,6 +72,14 @@ export const upInOut = {
     transition: {
       duration: 0.1,
       ease: 'easeOut',
+    },
+  },
+};
+
+export const staggerX = {
+  show: {
+    transition: {
+      staggerChildren: 0.1,
     },
   },
 };
