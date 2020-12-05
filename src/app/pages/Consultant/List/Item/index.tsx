@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './styles';
 import Button from '../../../../common/components/Button';
 import whatsappIcon from '../../../../common/assets/icons/whatsapp.svg';
+import { fadeInUp } from '../../../../common/utils/animations';
 
 interface Props {
   name: string,
@@ -27,7 +28,7 @@ const Item: React.FC<Props> = (props) => {
   } = props;
 
   return (
-    <Container>
+    <Container variants={fadeInUp}>
       <div>
         <header>
           <img

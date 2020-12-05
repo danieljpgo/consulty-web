@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Content } from './styles';
 import Filter, { Filter as FilterValues } from './Filter';
@@ -61,10 +61,12 @@ const Consultants = () => {
 
       <Content>
         <Filter onSubmit={handleFilterSubmit} />
-        <List
-          consultants={consultants}
-          onWhatsappClick={handleWhatsappClick}
-        />
+        {consultants && (
+          <List
+            consultants={consultants}
+            onWhatsappClick={handleWhatsappClick}
+          />
+        )}
       </Content>
     </Container>
   );

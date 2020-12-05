@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.article`
+export const Container = styled(motion.div)`
   display: grid;
   border-radius: ${(props) => props.theme.shapes.borderRadius}rem;
   background-color: ${(props) => props.theme.colors.surface.base};
