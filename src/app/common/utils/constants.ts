@@ -1,9 +1,9 @@
 export const subject = [
   { label: 'Selecione um tema', value: '' },
-  { label: 'Artes', value: 'Artes' },
-  { label: 'Ciências', value: 'Ciências' },
-  { label: 'Matemática', value: 'Matemática' },
-  { label: 'PortuguÊs', value: 'PortuguÊs' },
+  { label: 'Carreira', value: 'Carreira' },
+  { label: 'Empreendedorismo', value: 'Empreendedorismo' },
+  { label: 'Estudos', value: 'Estudos' },
+  { label: 'Investimento', value: 'Investimento' },
 ];
 
 export const days = [
