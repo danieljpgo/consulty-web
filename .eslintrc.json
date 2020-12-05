@@ -27,8 +27,7 @@
             }
         ],
         "react/jsx-fragments": [
-            1,
-            "element"
+            2
         ],
         "react/jsx-filename-extension": [
             "error",
@@ -48,6 +47,9 @@
             }
         ],
         "react/prop-types": "off",
+        "react/require-default-props": [
+            "off"
+        ],
         "import/prefer-default-export": "off"
     },
     "settings": {
