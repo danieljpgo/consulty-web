@@ -18,14 +18,24 @@ export const Container = styled(motion.form)`
     background-color: ${(props) => props.theme.colors.surface.constrast};
     
     display: grid;
-    grid-template-columns: min-content;
-    justify-content: flex-end;
+    grid-template-columns: auto;
+    grid-gap: ${(props) => props.theme.unit / 2}rem;
 
     > div{
-      display: none
+      display: none;
+      img{
+        grid-column: span 2;
+        justify-self: center;
+      }
+      div {
+        grid-column: span 2;
+        justify-self: center;
+      }
     }
-    
-    @media(min-width: ${(props) => props.theme.breakpoints.small}px) {
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.small}px) {
+      footer {
       grid-template-columns: max-content auto;
       grid-gap: ${(props) => props.theme.unit}rem;
       justify-content: space-between;
@@ -38,6 +48,11 @@ export const Container = styled(motion.form)`
         color: ${(props) => props.theme.colors.subtext.base};
         img{
           grid-row: span 2;
+          align-self: center;
+          div {
+            grid-column: unset;
+            justify-self: unset;
+          }
         }
       }
     }

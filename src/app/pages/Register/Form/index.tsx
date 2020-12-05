@@ -164,6 +164,7 @@ const Form = () => {
                   type="text"
                   label="Nome completo"
                   error={touched.name && errors.name}
+                  autocomplete="chrome-off"
                   as={TextField}
                 />
                 <Field
@@ -172,6 +173,7 @@ const Form = () => {
                   type="text"
                   label="Link da sua foto"
                   hint="comece com http://"
+                  autocomplete="chrome-off"
                   error={touched.avatar && errors.avatar}
                   as={TextField}
                 />
@@ -181,6 +183,7 @@ const Form = () => {
                   type="text"
                   label="Whatsapp"
                   hint="somente números com DD"
+                  autocomplete="chrome-off"
                   error={touched.whatsapp && errors.whatsapp}
                   maxLength="11"
                   as={TextField}
@@ -189,6 +192,7 @@ const Form = () => {
                   id="bio"
                   name="bio"
                   label="Biografia"
+                  autocomplete="chrome-off"
                   error={touched.bio && errors.bio}
                   as={TextAreaField}
                 />
@@ -199,6 +203,7 @@ const Form = () => {
                   name="subject"
                   label="Tema"
                   options={subjectItems}
+                  autocomplete="chrome-off"
                   error={touched.subject && errors.subject}
                   as={SelectField}
                 />
@@ -208,6 +213,7 @@ const Form = () => {
                   type="number"
                   label="Custo da sua hora por aula"
                   hint="em R$"
+                  autocomplete="chrome-off"
                   error={touched.cost && errors.cost}
                   as={TextField}
                 />

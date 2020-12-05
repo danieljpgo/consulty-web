@@ -1,5 +1,5 @@
 import React from 'react';
-import { staggerX } from '../../../common/utils/animations';
+import { staggerList } from '../../../common/utils/animations';
 import { Consultant } from '../index';
 import Item from './Item';
 import { Container, Alert } from './styles';
@@ -22,7 +22,7 @@ const List = (props: Props) => {
         </Alert>
       )}
       <Container
-        variants={staggerX}
+        variants={staggerList}
         initial="hidden"
         animate="show"
         exit="out"

@@ -99,10 +99,16 @@ export const upInOut = {
   },
 };
 
-export const staggerX = {
+export const staggerList = {
   show: {
     transition: {
       staggerChildren: 0.1,
+    },
+  },
+  out: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
     },
   },
 };

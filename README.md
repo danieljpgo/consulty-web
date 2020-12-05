@@ -36,32 +36,37 @@
      <img alt="License" src="https://img.shields.io/badge/license-MIT-1b263b?style=flat&labelColor=2f4858">
 </p>
 
-> TODO:clipboard:
+> A marketplace to find a consultant for your next step. :clipboard:
 
 &nbsp;
 
-<div align="center">
+<p align="center">
    <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#integrations">Integrations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#license">License</a>
-</div>
+</p>
 
-<!-- <div align="center">
+<div align="center">
    <img
       alt="Post Motion"
       title="Post Motion"
-      src=".github/web-mobile.gif"
+      src=".github/anim.gif"
       width="640px" />
-</div> -->
+</div>
 
 ## Project
-TODO
+The project is a platform where it is possible to connect consultants to people seeking consultancy, enabling registration as a consultant as well.
+
 
 ## Features
-TODO
+The main features of the project are:
+- Register as a consultant.
+- Search for consultants.
+- Integration with Whatsapp.
+- Total number of contacts created.
 
 ## Integrations
 This project is part of the **Consulty** system, the other projects are located at:
