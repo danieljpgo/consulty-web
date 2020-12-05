@@ -17,8 +17,17 @@ export interface Consultant {
   whatsapp: string,
 }
 
-const Consultants: React.FC = () => {
-  const [consultants, setConsultants] = useState<Consultant[]>([]);
+const Consultants = () => {
+  const [consultants, setConsultants] = useState<Consultant[]>();
+
+  useEffect(() => {
+    const fetchClasses = async () => {
+      const { data } = await api.get('classes');
+      setConsultants(data);
+    };
+
+    fetchClasses();
+  }, []);
 
   async function handleFilterSubmit(filter: FilterValues) {
     const params = {
