@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Container, Content } from './styles';
-import Filter, { Filter as FilterValues } from './Filter';
-import List from './List';
 import api from '../../common/services/api';
 import { stagger, upInOut } from '../../common/utils/animations';
+import Filter, { Filter as FilterValues } from './Filter';
+import List from './List';
+import { Container, Content } from './styles';
 
 export interface Consultant {
   avatar: string,
@@ -35,9 +35,7 @@ const Consultants = () => {
       subject: filter.subject,
       time: filter.time,
     };
-
     const { data } = await api.get('classes', { params });
-
     setConsultants(data);
   }
 
@@ -58,7 +56,6 @@ const Consultants = () => {
         <br />
         consultores disponíveis.
       </motion.h1>
-
       <Content>
         <Filter onSubmit={handleFilterSubmit} />
         {consultants && (

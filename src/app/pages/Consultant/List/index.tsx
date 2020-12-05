@@ -1,16 +1,15 @@
 import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Container, Alert } from './styles';
-import Item from './Item';
+import { staggerX } from '../../../common/utils/animations';
 import { Consultant } from '../index';
-import { stagger, staggerX, fadeInUp } from '../../../common/utils/animations';
+import Item from './Item';
+import { Container, Alert } from './styles';
 
 interface Props {
   consultants: Consultant[],
   onWhatsappClick: (whatsapp: string, user_id: number) => void,
 }
 
-const List: React.FC<Props> = (props) => {
+const List = (props: Props) => {
   const { consultants, onWhatsappClick } = props;
 
   return (

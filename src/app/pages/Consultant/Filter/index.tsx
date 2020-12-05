@@ -8,7 +8,7 @@ import SelectField from '../../../common/components/SelectField';
 import { days, subject } from '../../../common/utils/constants';
 import Button from '../../../common/components/Button';
 import { errorRequired } from '../../../common/utils/errors';
-import { upInOut } from '../../../common/utils/animations';
+import { fadeInDown } from '../../../common/utils/animations';
 
 export interface Filter {
   subject: string,
@@ -50,7 +50,7 @@ const Filter = (props: Props) => {
     >
       {({ handleSubmit, isValid }) => (
         <Container onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-          <motion.div variants={upInOut}>
+          <motion.div variants={fadeInDown}>
             <Field
               id="subject"
               name="subject"
@@ -60,7 +60,7 @@ const Filter = (props: Props) => {
               as={SelectField}
             />
           </motion.div>
-          <motion.div variants={upInOut}>
+          <motion.div variants={fadeInDown}>
             <Field
               id="daysOfWeek"
               name="daysOfWeek"
@@ -70,7 +70,7 @@ const Filter = (props: Props) => {
               as={SelectField}
             />
           </motion.div>
-          <motion.div variants={upInOut}>
+          <motion.div variants={fadeInDown}>
             <Field
               id="time"
               name="time"

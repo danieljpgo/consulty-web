@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container } from './styles';
 import Button from '../../../../common/components/Button';
 import whatsappIcon from '../../../../common/assets/icons/whatsapp.svg';
 import { fadeInUp } from '../../../../common/utils/animations';
+import { Container } from './styles';
 
 interface Props {
   name: string,
@@ -15,7 +15,7 @@ interface Props {
   onWhatsappClick: (whatsapp: string, user_id: number) => void,
 }
 
-const Item: React.FC<Props> = (props) => {
+const Item = (props: Props) => {
   const {
     name,
     avatar,

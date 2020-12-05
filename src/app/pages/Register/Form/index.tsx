@@ -8,9 +8,6 @@ import {
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import {
-  Container, Content, InputsContainer, ListInputs,
-} from './styles';
 import Button from '../../../common/components/Button';
 import Fieldset from './Fieldset';
 import TextField from '../../../common/components/TextField';
@@ -21,6 +18,12 @@ import { days, subject as subjectItems } from '../../../common/utils/constants';
 import { errorRequired, brazilianCellRegex, nameRegex } from '../../../common/utils/errors';
 import api from '../../../common/services/api';
 import { stagger } from '../../../common/utils/animations';
+import {
+  Container,
+  Content,
+  InputsContainer,
+  ListInputs,
+} from './styles';
 
 interface Schedule {
   daysOfWeek: '-1' | '0' | '1' | '2' | '3' | '4' | '5' | '6',

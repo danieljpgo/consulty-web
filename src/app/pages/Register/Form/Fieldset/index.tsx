@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Content } from './styles';
 
 interface Props {
@@ -9,18 +9,13 @@ interface Props {
   onAddSchedule?: () => void,
 }
 
-const defaultProps = {
-  title: 'Untitle',
-  onAddSchedule: () => null,
-};
-
-const Fieldset: React.FC<Props> = (props) => {
+const Fieldset = (props: Props) => {
   const {
-    title,
     action,
     children,
     disabled,
-    onAddSchedule,
+    title = 'Untitle',
+    onAddSchedule = () => null,
   } = props;
 
   return (
@@ -40,14 +35,12 @@ const Fieldset: React.FC<Props> = (props) => {
           )}
         </legend>
         <hr />
-        <Fragment>
+        <>
           {children}
-        </Fragment>
+        </>
       </Content>
     </fieldset>
   );
 };
-
-Fieldset.defaultProps = defaultProps;
 
 export default Fieldset;

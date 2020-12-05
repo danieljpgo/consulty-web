@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, Content } from './styles';
-import Form from './Form';
 import { stagger, upInOut } from '../../common/utils/animations';
+import Form from './Form';
+import { Container, Content } from './styles';
 
-const Register: React.FC = () => (
+const Register = () => (
   <Container
     variants={stagger}
     initial="hidden"
