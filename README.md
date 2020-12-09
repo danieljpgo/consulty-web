@@ -51,8 +51,8 @@
 
 <div align="center">
    <img
-      alt="Post Motion"
-      title="Post Motion"
+      alt="Consulty Web"
+      title="Consulty Web"
       src=".github/anim.gif"
       width="640px" />
 </div>
